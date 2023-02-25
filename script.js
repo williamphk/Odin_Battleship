@@ -19,6 +19,7 @@ const createShip = (shipName, shipLength, direction, group) => {
       },
     };
 };
+//test
 
 const selfShip1 = createShip("ship1", 1, "horizontal", "self");
 const selfShip2 = createShip("ship2", 1, "horizontal", "self");
@@ -60,8 +61,17 @@ const createGameboard = () => {
       let spaceAvailable = true;
       if (direction === "horizontal") {
         for (let i = 0; i < shipObj.shipLength; i++) {
-          console.log(shipObj.shipName, direction, x, y + i, this.board[x][y + i]);
-          if (this.board[x][y + i] !== null || this.board[x][y + i] === undefined) {
+          console.log(
+            shipObj.shipName,
+            direction,
+            x,
+            y + i,
+            this.board[x][y + i]
+          );
+          if (
+            this.board[x][y + i] !== null ||
+            this.board[x][y + i] === undefined
+          ) {
             spaceAvailable = false;
             console.log("space not available");
           }
@@ -71,7 +81,9 @@ const createGameboard = () => {
             this.board[x][y + i] = "ship";
           }
           console.log("space available");
-          console.log(`placed ${shipObj.shipName} at ${x} ${y} Direction:${direction}`);
+          console.log(
+            `placed ${shipObj.shipName} at ${x} ${y} Direction:${direction}`
+          );
           this.board[x][y] = shipObj;
         } else if (!spaceAvailable) {
           boardRival.placeShip(randomX(), randomY(), shipObj, direction);
@@ -89,7 +101,9 @@ const createGameboard = () => {
             this.board[x + i][y] = "ship";
           }
           console.log("space available");
-          console.log(`placed ${shipObj.shipName} at ${x} ${y} Direction:${direction}`);
+          console.log(
+            `placed ${shipObj.shipName} at ${x} ${y} Direction:${direction}`
+          );
           this.board[x][y] = shipObj;
         } else if (!spaceAvailable) {
           boardRival.placeShip(randomX(), randomY(), shipObj, direction);
@@ -126,7 +140,9 @@ const createGameboard = () => {
     isAllShipSink() {
       return !this.board.some((arr) =>
         arr.some(
-          (position) => (typeof position === "object" && position !== null) || position === "ship"
+          (position) =>
+            (typeof position === "object" && position !== null) ||
+            position === "ship"
         )
       );
     },
@@ -178,8 +194,12 @@ let player1 = createPlayer("Player");
 let player2 = createPlayer("AI");
 let isGameEnd = false;
 
-const battleCellContentRival = document.querySelectorAll(".battle-cell-content__rival");
-const battleCellContentSelf = document.querySelectorAll(".battle-cell-content__self");
+const battleCellContentRival = document.querySelectorAll(
+  ".battle-cell-content__rival"
+);
+const battleCellContentSelf = document.querySelectorAll(
+  ".battle-cell-content__self"
+);
 
 const result = document.querySelector(".result");
 
@@ -263,14 +283,24 @@ function drop(ev) {
     if (targetY > 9 - dataLength + 1) return;
     else {
       ev.target.appendChild(document.getElementById(data));
-      boardSelf.removeShip(originalLocationX, originalLocationY, shipObj, "horizontal");
+      boardSelf.removeShip(
+        originalLocationX,
+        originalLocationY,
+        shipObj,
+        "horizontal"
+      );
       boardSelf.placeShip(targetX, targetY, shipObj, "horizontal");
     }
   } else if (shipObj.direction === "vertical") {
     if (targetX > 9 - dataLength + 1) return;
     else {
       ev.target.appendChild(document.getElementById(data));
-      boardSelf.removeShip(originalLocationX, originalLocationY, shipObj, "vertical");
+      boardSelf.removeShip(
+        originalLocationX,
+        originalLocationY,
+        shipObj,
+        "vertical"
+      );
       boardSelf.placeShip(targetX, targetY, shipObj, "vertical");
     }
   }
