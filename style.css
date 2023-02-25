@@ -76,3 +76,8 @@ td {
   font-weight: bold;
   color: #ffffff;
 }
+
+.dragging {
+  opacity: 0.1%;
+  z-index: 0;
+}

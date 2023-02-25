@@ -86,7 +86,7 @@ const createGameboard = () => {
         }
         if (spaceAvailable) {
           for (let i = 0; i < shipObj.shipLength; i++) {
-            this.board[x][y + i] = "ship";
+            this.board[x][y + i] = shipObj;
           }
           // console.log("space available");
           // console.log(
@@ -106,7 +106,7 @@ const createGameboard = () => {
         }
         if (spaceAvailable) {
           for (let i = 0; i < shipObj.shipLength; i++) {
-            this.board[x + i][y] = "ship";
+            this.board[x + i][y] = shipObj;
           }
           // console.log("space available");
           // console.log(
@@ -289,6 +289,7 @@ const AIMove = (x, y) => {
 
 function drag(ev) {
   if (gameStart === true) return;
+  ev.target.classList.add("dragging");
   ev.dataTransfer.setData("target", ev.target.id);
   ev.dataTransfer.setData("target-length", ev.target.dataset.length);
   ev.dataTransfer.setData(
@@ -299,6 +300,11 @@ function drag(ev) {
     "srcY",
     ev.srcElement.parentElement.attributes[2].value
   );
+}
+
+function dragEnd(ev) {
+  if (gameStart === true) return;
+  ev.target.classList.remove("dragging");
 }
 
 function allowDrop(ev) {
@@ -324,9 +330,12 @@ function drop(ev) {
 
   if (shipObj.direction === "horizontal") {
     for (let i = 0; i < dataLength; i++) {
+      console.log(targetX, targetY + i);
+      console.log(boardSelf.board[targetX][targetY + i]);
       if (
         maxY - targetY + 1 < dataLength ||
-        boardSelf.board[targetX][targetY + i] !== null ||
+        (boardSelf.board[targetX][targetY + i] !== null &&
+          boardSelf.board[targetX][targetY + i] !== shipObj) ||
         boardSelf.board[targetX][targetY + i] === undefined
       ) {
         spaceAvailable = false;
@@ -348,7 +357,8 @@ function drop(ev) {
     for (let i = 0; i < dataLength; i++) {
       if (
         maxX - targetX + 1 < dataLength ||
-        boardSelf.board[targetX + i][targetY] !== null ||
+        (boardSelf.board[targetX + i][targetY] !== null &&
+          boardSelf.board[targetX + i][targetY] !== shipObj) ||
         boardSelf.board[targetX + i][targetY] === undefined
       ) {
         spaceAvailable = false;
