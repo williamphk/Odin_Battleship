@@ -3,24 +3,31 @@ const createShip = (shipName, shipLength, direction, group) => {
     throw new Error("Wrong Length");
   } else
     return {
+      //shipName is the name of the ship
       shipName: shipName,
+      //shipLength is the length of the ship
       shipLength: shipLength,
+      //direction is either horizontal or vertical
       direction: direction,
+      //group is either self or rival
       group: group,
+      //creating an array of length shipLength filled with undefined values
       array: [...Array(shipLength)],
+      //hitPosition is the position of the ship that is hit
       hit(hitPosition) {
         if (hitPosition >= this.array.shipLength || hitPosition < 0) {
           throw new Error("Wrong Position");
         }
         this.array[hitPosition] = "hit";
       },
+      //checks if all the positions in the array are hit
       isSink() {
         return this.array.every((position) => position === "hit");
       },
     };
 };
-//test
 
+//creating ships for self and rival
 const selfShip1 = createShip("ship1", 1, "horizontal", "self");
 const selfShip2 = createShip("ship2", 1, "horizontal", "self");
 const selfShip3 = createShip("ship3", 1, "horizontal", "self");
@@ -43,6 +50,7 @@ const rivalShip8 = createShip("ship8", 3, "horizontal", "rival");
 const rivalShip9 = createShip("ship9", 3, "horizontal", "rival");
 const rivalShip10 = createShip("ship10", 4, "horizontal", "rival");
 
+//creating an array of ships for self and rival
 const createGameboard = () => {
   return {
     board: [
@@ -149,21 +157,26 @@ const createGameboard = () => {
   };
 };
 
+//creating gameboard for self and rival
 let boardSelf = createGameboard();
 let boardRival = createGameboard();
 
+//random x position
 const randomX = () => {
   return Math.floor(Math.random() * 10);
 };
+//random y position
 const randomY = () => {
   return Math.floor(Math.random() * 10);
 };
+//random direction
 const randomDirection = () => {
   let number = Math.floor(Math.random() * 2);
   if (number === 0) return "horizontal";
   if (number === 1) return "vertical";
 };
 
+//placing ships on rival gameboard
 boardRival.placeShip(randomX(), randomY(), selfShip1, randomDirection());
 boardRival.placeShip(randomX(), randomY(), selfShip2, randomDirection());
 boardRival.placeShip(randomX(), randomY(), selfShip3, randomDirection());
@@ -175,6 +188,7 @@ boardRival.placeShip(randomX(), randomY(), selfShip8, randomDirection());
 boardRival.placeShip(randomX(), randomY(), selfShip9, randomDirection());
 boardRival.placeShip(randomX(), randomY(), selfShip10, randomDirection());
 
+//placing ships on self gameboard
 boardSelf.placeShip(0, 0, rivalShip1, "horizontal");
 boardSelf.placeShip(0, 3, rivalShip2, "horizontal");
 boardSelf.placeShip(0, 6, rivalShip3, "horizontal");
@@ -186,12 +200,15 @@ boardSelf.placeShip(6, 1, rivalShip8, "horizontal");
 boardSelf.placeShip(6, 6, rivalShip9, "horizontal");
 boardSelf.placeShip(8, 3, rivalShip10, "horizontal");
 
+//creating player
 const createPlayer = (name) => {
   return { name };
 };
 
+//creating players
 let player1 = createPlayer("Player");
 let player2 = createPlayer("AI");
+
 let isGameEnd = false;
 
 const battleCellContentRival = document.querySelectorAll(
@@ -255,21 +272,27 @@ const AIMove = (x, y) => {
 };
 
 function drag(ev) {
-  if (abort === true) return;
+  if (gameStart === true) return;
   ev.dataTransfer.setData("target", ev.target.id);
   ev.dataTransfer.setData("target-length", ev.target.dataset.length);
-  ev.dataTransfer.setData("srcX", ev.path[1].dataset.x);
-  ev.dataTransfer.setData("srcY", ev.path[1].dataset.y);
+  ev.dataTransfer.setData(
+    "srcX",
+    ev.srcElement.parentElement.attributes[1].value
+  );
+  ev.dataTransfer.setData(
+    "srcY",
+    ev.srcElement.parentElement.attributes[2].value
+  );
 }
 
 function allowDrop(ev) {
-  if (abort === true) return;
+  if (gameStart === true) return;
   ev.preventDefault();
   ev.dataTransfer.dropEffect = "move";
 }
 
 function drop(ev) {
-  if (abort === true) return;
+  if (gameStart === true) return;
   let data = ev.dataTransfer.getData("target");
   let dataLength = ev.dataTransfer.getData("target-length");
   let originalLocationX = Number(ev.dataTransfer.getData("srcX"));
@@ -307,9 +330,9 @@ function drop(ev) {
 }
 
 function shipClick(event) {
-  if (abort === true) return;
-  let shipX = Number(event.path[1].dataset.x);
-  let shipY = Number(event.path[1].dataset.y);
+  if (gameStart === true) return;
+  let shipX = Number(event.srcElement.parentElement.attributes[1].value);
+  let shipY = Number(event.srcElement.parentElement.attributes[2].value);
   let shipObj = boardSelf.board[shipX][shipY];
   let shipLength = Number(event.target.dataset.length);
   let shipSize = 32 * shipLength + shipLength - 1;
@@ -334,5 +357,4 @@ function shipClick(event) {
   }
 }
 
-let abort = false;
 let gameStart = false;
