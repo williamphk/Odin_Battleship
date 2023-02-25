@@ -69,49 +69,49 @@ const createGameboard = () => {
       let spaceAvailable = true;
       if (direction === "horizontal") {
         for (let i = 0; i < shipObj.shipLength; i++) {
-          console.log(
-            shipObj.shipName,
-            direction,
-            x,
-            y + i,
-            this.board[x][y + i]
-          );
+          // console.log(
+          //   shipObj.shipName,
+          //   direction,
+          //   x,
+          //   y + i,
+          //   this.board[x][y + i]
+          // );
           if (
             this.board[x][y + i] !== null ||
             this.board[x][y + i] === undefined
           ) {
             spaceAvailable = false;
-            console.log("space not available");
+            // console.log("space not available");
           }
         }
         if (spaceAvailable) {
           for (let i = 0; i < shipObj.shipLength; i++) {
             this.board[x][y + i] = "ship";
           }
-          console.log("space available");
-          console.log(
-            `placed ${shipObj.shipName} at ${x} ${y} Direction:${direction}`
-          );
+          // console.log("space available");
+          // console.log(
+          //   `placed ${shipObj.shipName} at ${x} ${y} Direction:${direction}`
+          // );
           this.board[x][y] = shipObj;
         } else if (!spaceAvailable) {
           boardRival.placeShip(randomX(), randomY(), shipObj, direction);
         }
       } else if (direction === "vertical") {
         for (let i = 0; i < shipObj.shipLength; i++) {
-          console.log(shipObj.shipName, direction, x + i, y, this.board[x][y]);
+          // console.log(shipObj.shipName, direction, x + i, y, this.board[x][y]);
           if (this.board[x + i]?.[y] || this.board[x + i]?.[y] === undefined) {
             spaceAvailable = false;
-            console.log("space not available");
+            // console.log("space not available");
           }
         }
         if (spaceAvailable) {
           for (let i = 0; i < shipObj.shipLength; i++) {
             this.board[x + i][y] = "ship";
           }
-          console.log("space available");
-          console.log(
-            `placed ${shipObj.shipName} at ${x} ${y} Direction:${direction}`
-          );
+          // console.log("space available");
+          // console.log(
+          //   `placed ${shipObj.shipName} at ${x} ${y} Direction:${direction}`
+          // );
           this.board[x][y] = shipObj;
         } else if (!spaceAvailable) {
           boardRival.placeShip(randomX(), randomY(), shipObj, direction);
@@ -336,8 +336,21 @@ function shipClick(event) {
   let shipObj = boardSelf.board[shipX][shipY];
   let shipLength = Number(event.target.dataset.length);
   let shipSize = 32 * shipLength + shipLength - 1;
+  let maxX = 9;
+  let maxY = 9;
+  let spaceAvailable = true;
   if (shipObj.direction === "horizontal") {
-    if (shipX > 9 - shipLength + 1) return;
+    for (let i = 1; i < shipObj.shipLength; i++) {
+      if (
+        maxX - shipX < shipLength ||
+        boardSelf.board[shipX + i][shipY] !== null ||
+        boardSelf.board[shipX + i][shipY] === undefined
+      ) {
+        spaceAvailable = false;
+      }
+    }
+    console.log(spaceAvailable);
+    if (spaceAvailable === false) return;
     else {
       event.target.style.width = "32px";
       event.target.style.height = shipSize + "px";
@@ -346,7 +359,17 @@ function shipClick(event) {
       shipObj.direction = "vertical";
     }
   } else if (shipObj.direction === "vertical") {
-    if (shipY > 9 - shipLength + 1) return;
+    for (let i = 1; i < shipObj.shipLength; i++) {
+      if (
+        maxY - shipY < shipLength ||
+        boardSelf.board[shipX][shipY + i] !== null ||
+        boardSelf.board[shipX][shipY + i] === undefined
+      ) {
+        spaceAvailable = false;
+      }
+    }
+    console.log(spaceAvailable);
+    if (spaceAvailable === false) return;
     else {
       event.target.style.width = shipSize + "px";
       event.target.style.height = "32px";
