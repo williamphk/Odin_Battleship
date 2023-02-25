@@ -1,3 +1,5 @@
+const hitCount = document.getElementById("hit-count");
+
 const createShip = (shipName, shipLength, direction, group) => {
   if (shipLength > 4 || shipLength < 1) {
     throw new Error("Wrong Length");
@@ -154,6 +156,17 @@ const createGameboard = () => {
         )
       );
     },
+    hitCount() {
+      let count = 0;
+      for (let i = 0; i < this.board.length; i++) {
+        for (let j = 0; j < this.board[i].length; j++) {
+          if (this.board[i][j] === "hit") {
+            count++;
+          }
+        }
+      }
+      return count;
+    },
   };
 };
 
@@ -222,10 +235,11 @@ const result = document.querySelector(".result");
 
 battleCellContentRival.forEach((cell, index) => {
   cell.addEventListener("click", (e) => {
-    if (isGameEnd) return;
+    if (!gameStart) return;
     if (gameLogic.turn === player2.name) return;
     if (cell.innerHTML === "。") return;
-    if (!gameStart) return;
+    hitCount.innerHTML = `You hit: ${boardRival.hitCount()} AI hit: ${boardSelf.hitCount()}`;
+    if (isGameEnd) return;
     else {
       cell.innerHTML = "。";
       boardRival.receiveAttack(
@@ -234,6 +248,7 @@ battleCellContentRival.forEach((cell, index) => {
       );
       if (boardRival.isAllShipSink()) {
         result.innerHTML = "You win";
+        hitCount.innerHTML = `You hit: ${boardRival.hitCount()} AI hit: ${boardSelf.hitCount()}`;
         isGameEnd = true;
       } else {
         gameLogic.turn = player2.name;
@@ -269,6 +284,7 @@ const AIMove = (x, y) => {
         div.style.zIndex = "10";
         div.innerHTML = "H";
         cell.appendChild(div);
+        hitCount.innerHTML = `You hit: ${boardRival.hitCount()} AI hit: ${boardSelf.hitCount()}`;
       } else {
         cell.style.position = "relative";
         cell.innerHTML = "H";
