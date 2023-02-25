@@ -256,9 +256,25 @@ const AIMove = (x, y) => {
     let cell = document.querySelector(
       `[class$="battle-cell-content battle-cell-content__self"][data-x="${x}"][data-y="${y}"]`
     );
+    let shipDiv = cell.innerHTML;
     if (boardSelf.isHit(x, y)) {
-      cell.innerHTML = "H";
-      cell.style.backgroundColor = "red";
+      console.log("x", x, "y", y);
+      if (shipDiv) {
+        var div = document.createElement("div");
+        div.style.backgroundColor = "red";
+        div.style.position = "absolute";
+        div.style.top = "0";
+        div.style.width = "100%";
+        div.style.height = "100%";
+        div.style.zIndex = "10";
+        div.innerHTML = "H";
+        cell.appendChild(div);
+      } else {
+        cell.style.position = "relative";
+        cell.innerHTML = "H";
+        cell.style.zIndex = "3";
+        cell.style.backgroundColor = "red";
+      }
     } else if (boardSelf.isMiss(x, y)) {
       cell.innerHTML = "M";
     }
