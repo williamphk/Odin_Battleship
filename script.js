@@ -304,8 +304,9 @@ const AIMove = (x, y) => {
 };
 
 function drag(ev) {
+  console.log("drag");
   if (gameStart === true) return;
-  ev.target.classList.add("dragging");
+
   ev.dataTransfer.setData("target", ev.target.id);
   ev.dataTransfer.setData("target-length", ev.target.dataset.length);
   ev.dataTransfer.setData(
@@ -316,6 +317,7 @@ function drag(ev) {
     "srcY",
     ev.srcElement.parentElement.attributes[2].value
   );
+  ev.target.classList.add("dragging");
 }
 
 function dragEnd(ev) {

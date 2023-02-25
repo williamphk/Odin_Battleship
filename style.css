@@ -3,10 +3,6 @@
   padding: 0;
 }
 
-html {
-  height: 100vh;
-}
-
 body {
   height: inherit;
   display: flex;
@@ -77,6 +73,26 @@ td {
   align-items: center;
   line-height: 32px;
   color: #ffffff;
+}
+
+.ship::before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: -5px;
+  width: 16px;
+  height: 3px;
+  background-color: #ff5d5d;
+}
+
+.ship::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 11px;
+  width: 10px;
+  height: 10px;
+  background-color: #d3a2a2;
 }
 
 .start-btn {
