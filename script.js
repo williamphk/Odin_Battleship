@@ -250,6 +250,10 @@ battleCellContentRival.forEach((cell, index) => {
         result.innerHTML = "You win";
         hitCount.innerHTML = `You hit: ${boardRival.hitCount()} AI hit: ${boardSelf.hitCount()}`;
         isGameEnd = true;
+        document.getElementById("start-btn").innerHTML = "Restart";
+        document.getElementById("start-btn").onclick = () => {
+          window.location.reload();
+        };
       } else {
         gameLogic.turn = player2.name;
         AIMove(randomX(), randomY());
@@ -297,6 +301,10 @@ const AIMove = (x, y) => {
     if (boardSelf.isAllShipSink()) {
       result.innerHTML = "AI win";
       isGameEnd = true;
+      document.getElementById("start-btn").innerHTML = "Restart";
+      document.getElementById("start-btn").onclick = () => {
+        window.location.reload();
+      };
     } else {
       gameLogic.turn = player1.name;
     }
