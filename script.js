@@ -299,11 +299,25 @@ function drop(ev) {
   let originalLocationY = Number(ev.dataTransfer.getData("srcY"));
   let targetX = Number(ev.target.dataset.x);
   let targetY = Number(ev.target.dataset.y);
+  let maxX = 9;
+  let maxY = 9;
   if (isNaN(targetX) || isNaN(targetY)) return;
   ev.preventDefault();
   let shipObj = boardSelf.board[originalLocationX][originalLocationY];
+  let spaceAvailable = true;
+
   if (shipObj.direction === "horizontal") {
-    if (targetY > 9 - dataLength + 1) return;
+    for (let i = 0; i < dataLength; i++) {
+      if (
+        maxY - targetY + 1 < dataLength ||
+        boardSelf.board[targetX][targetY + i] !== null ||
+        boardSelf.board[targetX][targetY + i] === undefined
+      ) {
+        spaceAvailable = false;
+      }
+    }
+    console.log(spaceAvailable);
+    if (spaceAvailable === false) return;
     else {
       ev.target.appendChild(document.getElementById(data));
       boardSelf.removeShip(
@@ -315,7 +329,17 @@ function drop(ev) {
       boardSelf.placeShip(targetX, targetY, shipObj, "horizontal");
     }
   } else if (shipObj.direction === "vertical") {
-    if (targetX > 9 - dataLength + 1) return;
+    for (let i = 0; i < dataLength; i++) {
+      if (
+        maxX - targetX + 1 < dataLength ||
+        boardSelf.board[targetX + i][targetY] !== null ||
+        boardSelf.board[targetX + i][targetY] === undefined
+      ) {
+        spaceAvailable = false;
+      }
+    }
+    console.log(spaceAvailable);
+    if (spaceAvailable === false) return;
     else {
       ev.target.appendChild(document.getElementById(data));
       boardSelf.removeShip(
@@ -342,7 +366,7 @@ function shipClick(event) {
   if (shipObj.direction === "horizontal") {
     for (let i = 1; i < shipObj.shipLength; i++) {
       if (
-        maxX - shipX < shipLength ||
+        maxX - shipX + 1 < shipLength ||
         boardSelf.board[shipX + i][shipY] !== null ||
         boardSelf.board[shipX + i][shipY] === undefined
       ) {
@@ -361,7 +385,7 @@ function shipClick(event) {
   } else if (shipObj.direction === "vertical") {
     for (let i = 1; i < shipObj.shipLength; i++) {
       if (
-        maxY - shipY < shipLength ||
+        maxY - shipY + 1 < shipLength ||
         boardSelf.board[shipX][shipY + i] !== null ||
         boardSelf.board[shipX][shipY + i] === undefined
       ) {
