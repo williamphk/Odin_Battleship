@@ -5,7 +5,5 @@ Live preview: https://williamphk.github.io/odin_Battleship/
 The Battleship
 
 ### Built With
-[Insert technique 1 here]
-[Insert technique 2 here]
-[Insert technique 3 here]
-...
+[JavaScript]
+[Webpack]
