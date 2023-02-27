@@ -4,11 +4,12 @@ import { createGameboard } from "./factories/createGameboard";
 import { createPlayer } from "./factories/createPlayer";
 
 //import event handler functions
-import { shipClick } from "./eventsHandlers/shipClick";
-import { dragStart } from "./eventsHandlers/dragStart";
-import { dragOver } from "./eventsHandlers/dragOver";
-import { dragEnd } from "./eventsHandlers/dragEnd";
-import { drop } from "./eventsHandlers/drop";
+import { shipClick } from "./eventHandlers/shipClick";
+import { dragStart } from "./eventHandlers/dragStart";
+import { dragOver } from "./eventHandlers/dragOver";
+import { dragEnd } from "./eventHandlers/dragEnd";
+import { drop } from "./eventHandlers/drop";
+import { rivalCellClick } from "./eventHandlers/rivalCellClick";
 
 //import helper functions
 import { dom } from "./utils/dom";
@@ -18,8 +19,6 @@ dom();
 
 let gameStart = false;
 let isGameEnd = false;
-
-const hitCount = document.getElementById("hit-count");
 
 //creating ships for self and rival
 const selfShip1 = createShip("ship1", 1, "horizontal", "self");
@@ -32,8 +31,6 @@ const selfShip7 = createShip("ship7", 2, "horizontal", "self");
 const selfShip8 = createShip("ship8", 3, "horizontal", "self");
 const selfShip9 = createShip("ship9", 3, "horizontal", "self");
 const selfShip10 = createShip("ship10", 4, "horizontal", "self");
-
-console.log(selfShip1);
 
 const rivalShip1 = createShip("ship1", 1, "horizontal", "rival");
 const rivalShip2 = createShip("ship2", 1, "horizontal", "rival");
@@ -79,96 +76,34 @@ boardSelf.placeShip(8, 3, rivalShip10, "horizontal");
 
 //creating players
 let player1 = createPlayer("Player");
-let player2 = createPlayer("AI");
+let player2 = createPlayer("Bot");
 
 console.log(player1);
-
-const battleCellContentRival = document.querySelectorAll(
-  ".battle-cell-content__rival"
-);
-const battleCellContentSelf = document.querySelectorAll(
-  ".battle-cell-content__self"
-);
-
-const result = document.querySelector(".result");
-
-battleCellContentRival.forEach((cell, index) => {
-  cell.addEventListener("click", (e) => {
-    if (!gameStart) return;
-    if (gameLogic.turn === player2.name) return;
-    if (cell.innerHTML === "。") return;
-    hitCount.innerHTML = `You hit: ${boardRival.hitCount()} AI hit: ${boardSelf.hitCount()}`;
-    if (isGameEnd) return;
-    else {
-      cell.innerHTML = "。";
-      boardRival.receiveAttack(
-        battleCellContentRival[index].dataset.x,
-        battleCellContentRival[index].dataset.y
-      );
-      if (boardRival.isAllShipSink()) {
-        result.innerHTML = "You win";
-        hitCount.innerHTML = `You hit: ${boardRival.hitCount()} AI hit: ${boardSelf.hitCount()}`;
-        isGameEnd = true;
-        document.getElementById("start-btn").innerHTML = "Restart";
-        document.getElementById("start-btn").onclick = () => {
-          window.location.reload();
-        };
-      } else {
-        gameLogic.turn = player2.name;
-        AIMove(randomX(), randomY());
-      }
-    }
-  });
-});
 
 const gameLogic = (() => {
   let turn = player1.name;
   return { turn: turn };
 })();
 
-const AIMove = (x, y) => {
-  if (boardSelf.isHit(x, y) || boardSelf.isMiss(x, y)) {
-    AIMove(randomX(), randomY());
-  } else {
-    boardSelf.receiveAttack(x, y);
-    let cell = document.querySelector(
-      `[class$="battle-cell-content battle-cell-content__self"][data-x="${x}"][data-y="${y}"]`
-    );
-    let shipDiv = cell.innerHTML;
-    if (boardSelf.isHit(x, y)) {
-      console.log("x", x, "y", y);
-      if (shipDiv) {
-        var div = document.createElement("div");
-        div.style.backgroundColor = "red";
-        div.style.position = "absolute";
-        div.style.top = "0";
-        div.style.width = "100%";
-        div.style.height = "100%";
-        div.style.zIndex = "10";
-        div.innerHTML = "H";
-        cell.appendChild(div);
-        hitCount.innerHTML = `You hit: ${boardRival.hitCount()} AI hit: ${boardSelf.hitCount()}`;
-      } else {
-        cell.style.position = "relative";
-        cell.innerHTML = "H";
-        cell.style.zIndex = "3";
-        cell.style.backgroundColor = "red";
-      }
-    } else if (boardSelf.isMiss(x, y)) {
-      cell.innerHTML = "M";
-    }
-    if (boardSelf.isAllShipSink()) {
-      result.innerHTML = "AI win";
-      isGameEnd = true;
-      document.getElementById("start-btn").innerHTML = "Restart";
-      document.getElementById("start-btn").onclick = () => {
-        window.location.reload();
-      };
-    } else {
-      gameLogic.turn = player1.name;
-    }
-  }
-};
+const battleCellContentRival = document.querySelectorAll(
+  ".battle-cell-content__rival"
+);
+
+battleCellContentRival.forEach((cell, index) => {
+  cell.addEventListener("click", () =>
+    rivalCellClick(
+      cell,
+      index,
+      gameStart,
+      gameLogic,
+      boardRival,
+      boardSelf,
+      isGameEnd,
+      player1,
+      player2
+    )
+  );
+});
 
 const ships = document.querySelectorAll(".ship");
 for (let i = 0; i < ships.length; i++) {
