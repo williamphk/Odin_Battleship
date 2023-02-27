@@ -1,13 +1,10 @@
 # odin_Battleship
 Live preview: https://williamphk.github.io/odin_Battleship/
 
-Project Name
+### About this project
 The Battleship
 
-Description
-[Insert a brief description of your project here]
-
-Techniques Used
+### Built With
 [Insert technique 1 here]
 [Insert technique 2 here]
 [Insert technique 3 here]
