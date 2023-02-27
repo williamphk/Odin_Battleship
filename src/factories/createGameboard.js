@@ -1,4 +1,4 @@
-import { randomX, randomY } from "../helpers/random";
+import { randomX, randomY } from "../utils/random";
 
 //creating an array of ships for self and rival
 const createGameboard = () => {

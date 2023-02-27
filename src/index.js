@@ -11,7 +11,10 @@ import { dragEnd } from "./eventsHandlers/dragEnd";
 import { drop } from "./eventsHandlers/drop";
 
 //import helper functions
-import { randomX, randomY, randomDirection } from "./helpers/random";
+import { dom } from "./utils/dom";
+import { randomX, randomY, randomDirection } from "./utils/random";
+
+dom();
 
 let gameStart = false;
 let isGameEnd = false;
