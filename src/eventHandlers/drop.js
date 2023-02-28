@@ -52,7 +52,7 @@ function drop(ev, boardPlayer, gameStart, selectedSubDiv) {
         targetY,
         shipObj,
         "horizontal",
-        Number(selectedSubDiv)
+        Number(selectedSubDiv) - 1
       );
       console.log(boardPlayer.board);
     }
@@ -97,7 +97,7 @@ function drop(ev, boardPlayer, gameStart, selectedSubDiv) {
         targetY,
         shipObj,
         "vertical",
-        Number(selectedSubDiv)
+        Number(selectedSubDiv) - 1
       );
       console.log(boardPlayer.board);
     }
