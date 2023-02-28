@@ -47,13 +47,7 @@ function drop(ev, boardPlayer, gameStart, selectedSubDiv) {
         shipObj,
         "horizontal"
       );
-      boardPlayer.placeShip(
-        targetX,
-        targetY,
-        shipObj,
-        "horizontal",
-        Number(selectedSubDiv) - 1
-      );
+      boardPlayer.placeShip(targetX, targetY, shipObj, "horizontal");
       console.log(boardPlayer.board);
     }
   } else if (shipObj.direction === "vertical") {
@@ -92,13 +86,7 @@ function drop(ev, boardPlayer, gameStart, selectedSubDiv) {
         shipObj,
         "vertical"
       );
-      boardPlayer.placeShip(
-        targetX,
-        targetY,
-        shipObj,
-        "vertical",
-        Number(selectedSubDiv) - 1
-      );
+      boardPlayer.placeShip(targetX, targetY, shipObj, "vertical");
       console.log(boardPlayer.board);
     }
   }

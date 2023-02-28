@@ -15,23 +15,17 @@ const createGameboard = () => {
       [null, null, null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null, null, null],
     ],
-    placeShip(x, y, shipObj, direction, selectedSubDiv = 0) {
+    placeShip(x, y, shipObj, direction) {
       let spaceAvailable = true;
       if (direction === "horizontal") {
         console.log("horizontal");
         for (let i = 0; i < shipObj.shipLength; i++) {
-          console.log(
-            "checking available",
-            x,
-            y + i - selectedSubDiv,
-            " for ship ",
-            shipObj
-          );
+          console.log("checking available", x, y + i, " for ship ", shipObj);
           console.log("10", this.board[x][10]);
           if (
-            (this.board[x][y + i - selectedSubDiv] !== null &&
-              this.board[x][y + i - selectedSubDiv] !== shipObj) ||
-            this.board[x][y + i - selectedSubDiv] === undefined
+            (this.board[x][y + i] !== null &&
+              this.board[x][y + i] !== shipObj) ||
+            this.board[x][y + i] === undefined
           ) {
             spaceAvailable = false;
           }
@@ -44,32 +38,20 @@ const createGameboard = () => {
           }
         } else if (!spaceAvailable) {
           console.log("random!");
-          this.placeShip(
-            randomX(),
-            randomY(),
-            shipObj,
-            direction,
-            selectedSubDiv
-          );
+          this.placeShip(randomX(), randomY(), shipObj, direction);
         }
       } else if (direction === "vertical") {
         console.log("vertical");
 
         for (let i = 0; i < shipObj.shipLength; i++) {
-          console.log(
-            "checking available",
-            x + i - selectedSubDiv,
-            y,
-            " for ship ",
-            shipObj
-          );
-          if (x + shipObj.shipLength >= 9) {
-            console.log("Out of range!" + x);
+          console.log("checking available", x + i, y, " for ship ", shipObj);
+          if (x + shipObj.shipLength - 1 > 9) {
+            console.log("Out of range!" + x + shipObj.shipLength - 1);
             spaceAvailable = false;
           } else if (
-            (this.board[x + i - selectedSubDiv][y] !== null &&
-              this.board[x + i - selectedSubDiv][y] !== shipObj) ||
-            this.board[x + i - selectedSubDiv][y] === undefined
+            (this.board[x + i][y] !== null &&
+              this.board[x + i][y] !== shipObj) ||
+            this.board[x + i][y] === undefined
           ) {
             spaceAvailable = false;
           }
@@ -82,13 +64,7 @@ const createGameboard = () => {
           }
         } else if (!spaceAvailable) {
           console.log("random!");
-          this.placeShip(
-            randomX(),
-            randomY(),
-            shipObj,
-            direction,
-            selectedSubDiv
-          );
+          this.placeShip(randomX(), randomY(), shipObj, direction);
         }
         console.log(this.board);
       }
