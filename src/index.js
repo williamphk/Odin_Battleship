@@ -51,28 +51,28 @@ console.log(boardPlayer);
 console.log(boardBot);
 
 //placing ships on bot gameboard
-boardBot.placeShip(randomX(), randomY(), playerShip1, randomDirection());
-boardBot.placeShip(randomX(), randomY(), playerShip2, randomDirection());
-boardBot.placeShip(randomX(), randomY(), playerShip3, randomDirection());
-boardBot.placeShip(randomX(), randomY(), playerShip4, randomDirection());
-boardBot.placeShip(randomX(), randomY(), playerShip5, randomDirection());
-boardBot.placeShip(randomX(), randomY(), playerShip6, randomDirection());
-boardBot.placeShip(randomX(), randomY(), playerShip7, randomDirection());
-boardBot.placeShip(randomX(), randomY(), playerShip8, randomDirection());
-boardBot.placeShip(randomX(), randomY(), playerShip9, randomDirection());
-boardBot.placeShip(randomX(), randomY(), playerShip10, randomDirection());
+boardBot.placeShip(randomX(), randomY(), botShip1, randomDirection());
+boardBot.placeShip(randomX(), randomY(), botShip2, randomDirection());
+boardBot.placeShip(randomX(), randomY(), botShip3, randomDirection());
+boardBot.placeShip(randomX(), randomY(), botShip4, randomDirection());
+boardBot.placeShip(randomX(), randomY(), botShip5, randomDirection());
+boardBot.placeShip(randomX(), randomY(), botShip6, randomDirection());
+boardBot.placeShip(randomX(), randomY(), botShip7, randomDirection());
+boardBot.placeShip(randomX(), randomY(), botShip8, randomDirection());
+boardBot.placeShip(randomX(), randomY(), botShip9, randomDirection());
+boardBot.placeShip(randomX(), randomY(), botShip10, randomDirection());
 
 //placing ships on player gameboard
-boardPlayer.placeShip(0, 0, botShip1, "horizontal");
-boardPlayer.placeShip(0, 3, botShip2, "horizontal");
-boardPlayer.placeShip(0, 6, botShip3, "horizontal");
-boardPlayer.placeShip(0, 9, botShip4, "horizontal");
-boardPlayer.placeShip(2, 1, botShip5, "horizontal");
-boardPlayer.placeShip(2, 7, botShip6, "horizontal");
-boardPlayer.placeShip(3, 4, botShip7, "horizontal");
-boardPlayer.placeShip(6, 1, botShip8, "horizontal");
-boardPlayer.placeShip(6, 6, botShip9, "horizontal");
-boardPlayer.placeShip(8, 3, botShip10, "horizontal");
+boardPlayer.placeShip(0, 0, playerShip1, "horizontal");
+boardPlayer.placeShip(0, 3, playerShip2, "horizontal");
+boardPlayer.placeShip(0, 6, playerShip3, "horizontal");
+boardPlayer.placeShip(0, 9, playerShip4, "horizontal");
+boardPlayer.placeShip(2, 1, playerShip5, "horizontal");
+boardPlayer.placeShip(2, 7, playerShip6, "horizontal");
+boardPlayer.placeShip(3, 4, playerShip7, "horizontal");
+boardPlayer.placeShip(6, 1, playerShip8, "horizontal");
+boardPlayer.placeShip(6, 6, playerShip9, "horizontal");
+boardPlayer.placeShip(8, 3, playerShip10, "horizontal");
 
 console.log(boardPlayer.board);
 
