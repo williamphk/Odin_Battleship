@@ -74,6 +74,8 @@ boardPlayer.placeShip(6, 1, botShip8, "horizontal");
 boardPlayer.placeShip(6, 6, botShip9, "horizontal");
 boardPlayer.placeShip(8, 3, botShip10, "horizontal");
 
+console.log(boardPlayer.board);
+
 //creating players
 let player1 = createPlayer("Player");
 let player2 = createPlayer("Bot");

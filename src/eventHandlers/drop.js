@@ -1,5 +1,7 @@
 function drop(ev, boardPlayer, gameStart, selectedSubDiv) {
+  console.log("drop");
   if (gameStart === true) return;
+  ev.preventDefault();
   let data = ev.dataTransfer.getData("target");
   let dataLength = ev.dataTransfer.getData("target-length");
   let originalLocationX = Number(ev.dataTransfer.getData("srcX"));
@@ -7,14 +9,10 @@ function drop(ev, boardPlayer, gameStart, selectedSubDiv) {
   let targetX = Number(ev.target.dataset.x);
   let targetY = Number(ev.target.dataset.y);
   if (isNaN(targetX) || isNaN(targetY)) return;
-  ev.preventDefault();
   let shipObj = boardPlayer.board[originalLocationX][originalLocationY];
   let spaceAvailable = true;
-
   if (shipObj.direction === "horizontal") {
     for (let i = 0; i < dataLength; i++) {
-      console.log(targetX, targetY + i - selectedSubDiv + 1);
-      console.log(boardPlayer.board[targetX][targetY + i - selectedSubDiv + 1]);
       if (
         (boardPlayer.board[targetX][targetY + i - selectedSubDiv + 1] !==
           null &&
@@ -27,8 +25,8 @@ function drop(ev, boardPlayer, gameStart, selectedSubDiv) {
       }
     }
     console.log(spaceAvailable);
-    if (spaceAvailable === false) return;
-    else {
+    if (!spaceAvailable) return;
+    else if (spaceAvailable) {
       if (selectedSubDiv == 2) {
         targetX = ev.target.dataset.x;
         targetY = ev.target.dataset.y - 1;
@@ -43,19 +41,23 @@ function drop(ev, boardPlayer, gameStart, selectedSubDiv) {
         `.battle-cell-content.battle-cell-content__player[data-x="${targetX}"][data-y="${targetY}"]`
       );
       targetCell.appendChild(document.getElementById(data));
-      boardPlayer.placeShip(targetX, targetY, shipObj, "horizontal");
       boardPlayer.removeShip(
         originalLocationX,
         originalLocationY,
         shipObj,
         "horizontal"
       );
+      boardPlayer.placeShip(
+        targetX,
+        targetY,
+        shipObj,
+        "horizontal",
+        Number(selectedSubDiv)
+      );
       console.log(boardPlayer.board);
     }
   } else if (shipObj.direction === "vertical") {
     for (let i = 0; i < dataLength; i++) {
-      console.log(targetX + i - selectedSubDiv + 1, targetY);
-      console.log(boardPlayer.board[targetX + i - selectedSubDiv + 1][targetY]);
       if (
         (boardPlayer.board[targetX + i - selectedSubDiv + 1][targetY] !==
           null &&
@@ -68,8 +70,8 @@ function drop(ev, boardPlayer, gameStart, selectedSubDiv) {
       }
     }
     console.log(spaceAvailable);
-    if (spaceAvailable === false) return;
-    else {
+    if (!spaceAvailable) return;
+    else if (spaceAvailable) {
       if (selectedSubDiv == 2) {
         targetX = ev.target.dataset.x - 1;
         targetY = ev.target.dataset.y;
@@ -84,13 +86,20 @@ function drop(ev, boardPlayer, gameStart, selectedSubDiv) {
         `.battle-cell-content.battle-cell-content__player[data-x="${targetX}"][data-y="${targetY}"]`
       );
       targetCell.appendChild(document.getElementById(data));
-      boardPlayer.placeShip(targetX, targetY, shipObj, "vertical");
       boardPlayer.removeShip(
         originalLocationX,
         originalLocationY,
         shipObj,
         "vertical"
       );
+      boardPlayer.placeShip(
+        targetX,
+        targetY,
+        shipObj,
+        "vertical",
+        Number(selectedSubDiv)
+      );
+      console.log(boardPlayer.board);
     }
   }
 }

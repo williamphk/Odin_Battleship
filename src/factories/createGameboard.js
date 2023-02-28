@@ -15,36 +15,42 @@ const createGameboard = () => {
       [null, null, null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null, null, null],
     ],
-    placeShip(x, y, shipObj, direction) {
+    placeShip(x, y, shipObj, direction, selectedSubDiv = 0) {
       let spaceAvailable = true;
       if (direction === "horizontal") {
         for (let i = 0; i < shipObj.shipLength; i++) {
           if (
-            this.board[x][y + i] !== null ||
-            this.board[x][y + i] === undefined
+            (this.board[x][y + i - selectedSubDiv] !== null &&
+              this.board[x][y + i - selectedSubDiv] !== shipObj) ||
+            this.board[x][y + i - selectedSubDiv] === undefined
           ) {
             spaceAvailable = false;
           }
         }
         if (spaceAvailable) {
+          this.board[x][y] = shipObj;
           for (let i = 0; i < shipObj.shipLength; i++) {
             this.board[x][y + i] = shipObj;
           }
-          this.board[x][y] = shipObj;
         } else if (!spaceAvailable) {
+          console.log("random!");
           this.placeShip(randomX(), randomY(), shipObj, direction);
         }
       } else if (direction === "vertical") {
         for (let i = 0; i < shipObj.shipLength; i++) {
-          if (this.board[x + i]?.[y] || this.board[x + i]?.[y] === undefined) {
+          if (
+            (this.board[x + i - selectedSubDiv][y] !== null &&
+              this.board[x + i - selectedSubDiv][y] !== shipObj) ||
+            this.board[x + i - selectedSubDiv][y] === undefined
+          ) {
             spaceAvailable = false;
           }
         }
         if (spaceAvailable) {
+          this.board[x][y] = shipObj;
           for (let i = 0; i < shipObj.shipLength; i++) {
             this.board[x + i][y] = shipObj;
           }
-          this.board[x][y] = shipObj;
         } else if (!spaceAvailable) {
           this.placeShip(randomX(), randomY(), shipObj, direction);
         }
