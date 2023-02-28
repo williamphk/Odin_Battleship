@@ -38,13 +38,13 @@ td {
   height: 32px;
 }
 
-.battle-cell-content__rival,
-.battle-cell-content__self {
+.battle-cell-content__bot,
+.battle-cell-content__player {
   text-align: center;
   line-height: 32px;
 }
 
-.battle-cell-content__rival:hover {
+.battle-cell-content__bot:hover {
   background-color: rgb(35, 186, 209);
   cursor: pointer;
 }

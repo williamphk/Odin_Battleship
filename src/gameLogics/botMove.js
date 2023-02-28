@@ -1,16 +1,24 @@
-import { randomX, randomY } from "./random.js";
+import { randomX, randomY } from "../utils/random.js";
 
-const botMove = (x, y, boardSelf, gameLogic, player1, boardRival) => {
-  if (boardSelf.isHit(x, y) || boardSelf.isMiss(x, y)) {
-    botMove(randomX(), randomY(), boardSelf, gameLogic, player1, boardRival);
+const botMove = (
+  x,
+  y,
+  boardPlayer,
+  gameLogic,
+  player1,
+  boardBot,
+  isGameEnd
+) => {
+  if (boardPlayer.isHit(x, y) || boardPlayer.isMiss(x, y)) {
+    botMove(randomX(), randomY(), boardPlayer, gameLogic, player1, boardBot);
   } else {
-    boardSelf.receiveAttack(x, y);
+    boardPlayer.receiveAttack(x, y);
     let cell = document.querySelector(
-      `[class$="battle-cell-content battle-cell-content__self"][data-x="${x}"][data-y="${y}"]`
+      `[class$="battle-cell-content battle-cell-content__player"][data-x="${x}"][data-y="${y}"]`
     );
     let shipDiv = cell.innerHTML;
     const result = document.querySelector(".result");
-    if (boardSelf.isHit(x, y)) {
+    if (boardPlayer.isHit(x, y)) {
       console.log("x", x, "y", y);
       if (shipDiv) {
         var div = document.createElement("div");
@@ -23,17 +31,17 @@ const botMove = (x, y, boardSelf, gameLogic, player1, boardRival) => {
         div.innerHTML = "H";
         cell.appendChild(div);
         const hitCount = document.getElementById("hit-count");
-        hitCount.innerHTML = `You hit: ${boardRival.hitCount()} AI hit: ${boardSelf.hitCount()}`;
+        hitCount.innerHTML = `You hit: ${boardBot.hitCount()} AI hit: ${boardPlayer.hitCount()}`;
       } else {
         cell.style.position = "relative";
         cell.innerHTML = "H";
         cell.style.zIndex = "3";
         cell.style.backgroundColor = "red";
       }
-    } else if (boardSelf.isMiss(x, y)) {
+    } else if (boardPlayer.isMiss(x, y)) {
       cell.innerHTML = "M";
     }
-    if (boardSelf.isAllShipSink()) {
+    if (boardPlayer.isAllShipSink()) {
       result.innerHTML = "AI win";
       isGameEnd = true;
       document.getElementById("start-btn").innerHTML = "Restart";

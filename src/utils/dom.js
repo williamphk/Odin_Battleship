@@ -4,50 +4,51 @@ function dom() {
   console.log("dom");
   const battlefields = document.querySelector(".battlefields");
 
-  const tableSelf = document.createElement("table");
-  const tableRival = document.createElement("table");
+  const tablePlayer = document.createElement("table");
+  const tableBot = document.createElement("table");
 
-  console.log(tableSelf, tableRival);
-  tableSelf.className = "battlefield-table-container__self";
-  tableRival.className = "battlefield-table-container__rival";
+  console.log(tablePlayer, tableBot);
+  tablePlayer.className = "battlefield-table-container__player";
+  tableBot.className = "battlefield-table-container__bot";
 
-  battlefields.appendChild(tableSelf);
-  battlefields.appendChild(tableRival);
+  battlefields.appendChild(tablePlayer);
+  battlefields.appendChild(tableBot);
 
   for (let i = 0; i < 10; i++) {
-    const trSelf = document.createElement("tr");
-    const trRival = document.createElement("tr");
+    const trPlayer = document.createElement("tr");
+    const trBot = document.createElement("tr");
 
-    trSelf.className = "battiefield-row__self";
-    trRival.className = "battiefield-row__rival";
+    trPlayer.className = "battiefield-row__player";
+    trBot.className = "battiefield-row__bot";
 
-    tableSelf.appendChild(trSelf);
-    tableRival.appendChild(trRival);
+    tablePlayer.appendChild(trPlayer);
+    tableBot.appendChild(trBot);
 
     for (let j = 0; j < 10; j++) {
-      const tdSelf = document.createElement("td");
-      const tdRival = document.createElement("td");
+      const tdPlayer = document.createElement("td");
+      const tdBot = document.createElement("td");
 
-      tdSelf.className = "battlefield-cell";
-      tdRival.className = "battlefield-cell";
+      tdPlayer.className = "battlefield-cell";
+      tdBot.className = "battlefield-cell";
 
-      const divCellSelf = document.createElement("div");
-      const divCellRival = document.createElement("div");
+      const divCellPlayer = document.createElement("div");
+      const divCellBot = document.createElement("div");
 
-      divCellSelf.className = "battle-cell-content battle-cell-content__self";
-      divCellRival.className = "battle-cell-content battle-cell-content__rival";
+      divCellPlayer.className =
+        "battle-cell-content battle-cell-content__player";
+      divCellBot.className = "battle-cell-content battle-cell-content__bot";
 
-      divCellSelf.dataset.x = i;
-      divCellSelf.dataset.y = j;
+      divCellPlayer.dataset.x = i;
+      divCellPlayer.dataset.y = j;
 
-      divCellRival.dataset.x = i;
-      divCellRival.dataset.y = j;
+      divCellBot.dataset.x = i;
+      divCellBot.dataset.y = j;
 
-      trSelf.appendChild(tdSelf);
-      trRival.appendChild(tdRival);
+      trPlayer.appendChild(tdPlayer);
+      trBot.appendChild(tdBot);
 
-      tdSelf.appendChild(divCellSelf);
-      tdRival.appendChild(divCellRival);
+      tdPlayer.appendChild(divCellPlayer);
+      tdBot.appendChild(divCellBot);
     }
   }
 
@@ -63,52 +64,52 @@ function dom() {
   const shipDiv10 = createShipDiv(10, 4, "131px");
 
   const cellWithShip1 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__self[data-x="0"][data-y="0"]'
+    '.battle-cell-content.battle-cell-content__player[data-x="0"][data-y="0"]'
   );
   cellWithShip1.appendChild(shipDiv1);
 
   const cellWithShip2 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__self[data-x="0"][data-y="3"]'
+    '.battle-cell-content.battle-cell-content__player[data-x="0"][data-y="3"]'
   );
   cellWithShip2.appendChild(shipDiv2);
 
   const cellWithShip3 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__self[data-x="0"][data-y="6"]'
+    '.battle-cell-content.battle-cell-content__player[data-x="0"][data-y="6"]'
   );
   cellWithShip3.appendChild(shipDiv3);
 
   const cellWithShip4 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__self[data-x="0"][data-y="9"]'
+    '.battle-cell-content.battle-cell-content__player[data-x="0"][data-y="9"]'
   );
   cellWithShip4.appendChild(shipDiv4);
 
   const cellWithShip5 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__self[data-x="2"][data-y="1"]'
+    '.battle-cell-content.battle-cell-content__player[data-x="2"][data-y="1"]'
   );
   cellWithShip5.appendChild(shipDiv5);
 
   const cellWithShip6 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__self[data-x="2"][data-y="7"]'
+    '.battle-cell-content.battle-cell-content__player[data-x="2"][data-y="7"]'
   );
   cellWithShip6.appendChild(shipDiv6);
 
   const cellWithShip7 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__self[data-x="3"][data-y="4"]'
+    '.battle-cell-content.battle-cell-content__player[data-x="3"][data-y="4"]'
   );
   cellWithShip7.appendChild(shipDiv7);
 
   const cellWithShip8 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__self[data-x="6"][data-y="1"]'
+    '.battle-cell-content.battle-cell-content__player[data-x="6"][data-y="1"]'
   );
   cellWithShip8.appendChild(shipDiv8);
 
   const cellWithShip9 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__self[data-x="6"][data-y="6"]'
+    '.battle-cell-content.battle-cell-content__player[data-x="6"][data-y="6"]'
   );
   cellWithShip9.appendChild(shipDiv9);
 
   const cellWithShip10 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__self[data-x="8"][data-y="3"]'
+    '.battle-cell-content.battle-cell-content__player[data-x="8"][data-y="3"]'
   );
   cellWithShip10.appendChild(shipDiv10);
 }

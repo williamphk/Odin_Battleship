@@ -9,7 +9,7 @@ import { dragStart } from "./eventHandlers/dragStart";
 import { dragOver } from "./eventHandlers/dragOver";
 import { dragEnd } from "./eventHandlers/dragEnd";
 import { drop } from "./eventHandlers/drop";
-import { rivalCellClick } from "./eventHandlers/rivalCellClick";
+import { playerMove } from "./gameLogics/playerMove";
 
 //import helper functions
 import { dom } from "./utils/dom";
@@ -20,59 +20,59 @@ dom();
 let gameStart = false;
 let isGameEnd = false;
 
-//creating ships for self and rival
-const selfShip1 = createShip("ship1", 1, "horizontal", "self");
-const selfShip2 = createShip("ship2", 1, "horizontal", "self");
-const selfShip3 = createShip("ship3", 1, "horizontal", "self");
-const selfShip4 = createShip("ship4", 1, "horizontal", "self");
-const selfShip5 = createShip("ship5", 2, "horizontal", "self");
-const selfShip6 = createShip("ship6", 2, "horizontal", "self");
-const selfShip7 = createShip("ship7", 2, "horizontal", "self");
-const selfShip8 = createShip("ship8", 3, "horizontal", "self");
-const selfShip9 = createShip("ship9", 3, "horizontal", "self");
-const selfShip10 = createShip("ship10", 4, "horizontal", "self");
+//creating ships for player and bot
+const playerShip1 = createShip("ship1", 1, "horizontal", "player");
+const playerShip2 = createShip("ship2", 1, "horizontal", "player");
+const playerShip3 = createShip("ship3", 1, "horizontal", "player");
+const playerShip4 = createShip("ship4", 1, "horizontal", "player");
+const playerShip5 = createShip("ship5", 2, "horizontal", "player");
+const playerShip6 = createShip("ship6", 2, "horizontal", "player");
+const playerShip7 = createShip("ship7", 2, "horizontal", "player");
+const playerShip8 = createShip("ship8", 3, "horizontal", "player");
+const playerShip9 = createShip("ship9", 3, "horizontal", "player");
+const playerShip10 = createShip("ship10", 4, "horizontal", "player");
 
-const rivalShip1 = createShip("ship1", 1, "horizontal", "rival");
-const rivalShip2 = createShip("ship2", 1, "horizontal", "rival");
-const rivalShip3 = createShip("ship3", 1, "horizontal", "rival");
-const rivalShip4 = createShip("ship4", 1, "horizontal", "rival");
-const rivalShip5 = createShip("ship5", 2, "horizontal", "rival");
-const rivalShip6 = createShip("ship6", 2, "horizontal", "rival");
-const rivalShip7 = createShip("ship7", 2, "horizontal", "rival");
-const rivalShip8 = createShip("ship8", 3, "horizontal", "rival");
-const rivalShip9 = createShip("ship9", 3, "horizontal", "rival");
-const rivalShip10 = createShip("ship10", 4, "horizontal", "rival");
+const botShip1 = createShip("ship1", 1, "horizontal", "bot");
+const botShip2 = createShip("ship2", 1, "horizontal", "bot");
+const botShip3 = createShip("ship3", 1, "horizontal", "bot");
+const botShip4 = createShip("ship4", 1, "horizontal", "bot");
+const botShip5 = createShip("ship5", 2, "horizontal", "bot");
+const botShip6 = createShip("ship6", 2, "horizontal", "bot");
+const botShip7 = createShip("ship7", 2, "horizontal", "bot");
+const botShip8 = createShip("ship8", 3, "horizontal", "bot");
+const botShip9 = createShip("ship9", 3, "horizontal", "bot");
+const botShip10 = createShip("ship10", 4, "horizontal", "bot");
 
-//creating gameboard for self and rival
-let boardSelf = createGameboard();
-let boardRival = createGameboard();
+//creating gameboard for player and bot
+let boardPlayer = createGameboard();
+let boardBot = createGameboard();
 
-console.log(boardSelf);
-console.log(boardRival);
+console.log(boardPlayer);
+console.log(boardBot);
 
-//placing ships on rival gameboard
-boardRival.placeShip(randomX(), randomY(), selfShip1, randomDirection());
-boardRival.placeShip(randomX(), randomY(), selfShip2, randomDirection());
-boardRival.placeShip(randomX(), randomY(), selfShip3, randomDirection());
-boardRival.placeShip(randomX(), randomY(), selfShip4, randomDirection());
-boardRival.placeShip(randomX(), randomY(), selfShip5, randomDirection());
-boardRival.placeShip(randomX(), randomY(), selfShip6, randomDirection());
-boardRival.placeShip(randomX(), randomY(), selfShip7, randomDirection());
-boardRival.placeShip(randomX(), randomY(), selfShip8, randomDirection());
-boardRival.placeShip(randomX(), randomY(), selfShip9, randomDirection());
-boardRival.placeShip(randomX(), randomY(), selfShip10, randomDirection());
+//placing ships on bot gameboard
+boardBot.placeShip(randomX(), randomY(), playerShip1, randomDirection());
+boardBot.placeShip(randomX(), randomY(), playerShip2, randomDirection());
+boardBot.placeShip(randomX(), randomY(), playerShip3, randomDirection());
+boardBot.placeShip(randomX(), randomY(), playerShip4, randomDirection());
+boardBot.placeShip(randomX(), randomY(), playerShip5, randomDirection());
+boardBot.placeShip(randomX(), randomY(), playerShip6, randomDirection());
+boardBot.placeShip(randomX(), randomY(), playerShip7, randomDirection());
+boardBot.placeShip(randomX(), randomY(), playerShip8, randomDirection());
+boardBot.placeShip(randomX(), randomY(), playerShip9, randomDirection());
+boardBot.placeShip(randomX(), randomY(), playerShip10, randomDirection());
 
-//placing ships on self gameboard
-boardSelf.placeShip(0, 0, rivalShip1, "horizontal");
-boardSelf.placeShip(0, 3, rivalShip2, "horizontal");
-boardSelf.placeShip(0, 6, rivalShip3, "horizontal");
-boardSelf.placeShip(0, 9, rivalShip4, "horizontal");
-boardSelf.placeShip(2, 1, rivalShip5, "horizontal");
-boardSelf.placeShip(2, 7, rivalShip6, "horizontal");
-boardSelf.placeShip(3, 4, rivalShip7, "horizontal");
-boardSelf.placeShip(6, 1, rivalShip8, "horizontal");
-boardSelf.placeShip(6, 6, rivalShip9, "horizontal");
-boardSelf.placeShip(8, 3, rivalShip10, "horizontal");
+//placing ships on player gameboard
+boardPlayer.placeShip(0, 0, botShip1, "horizontal");
+boardPlayer.placeShip(0, 3, botShip2, "horizontal");
+boardPlayer.placeShip(0, 6, botShip3, "horizontal");
+boardPlayer.placeShip(0, 9, botShip4, "horizontal");
+boardPlayer.placeShip(2, 1, botShip5, "horizontal");
+boardPlayer.placeShip(2, 7, botShip6, "horizontal");
+boardPlayer.placeShip(3, 4, botShip7, "horizontal");
+boardPlayer.placeShip(6, 1, botShip8, "horizontal");
+boardPlayer.placeShip(6, 6, botShip9, "horizontal");
+boardPlayer.placeShip(8, 3, botShip10, "horizontal");
 
 //creating players
 let player1 = createPlayer("Player");
@@ -85,19 +85,19 @@ const gameLogic = (() => {
   return { turn: turn };
 })();
 
-const battleCellContentRival = document.querySelectorAll(
-  ".battle-cell-content__rival"
+const battleCellContentBot = document.querySelectorAll(
+  ".battle-cell-content__bot"
 );
 
-battleCellContentRival.forEach((cell, index) => {
+battleCellContentBot.forEach((cell, index) => {
   cell.addEventListener("click", () =>
-    rivalCellClick(
+    playerMove(
       cell,
       index,
       gameStart,
       gameLogic,
-      boardRival,
-      boardSelf,
+      boardBot,
+      boardPlayer,
       isGameEnd,
       player1,
       player2
@@ -107,7 +107,9 @@ battleCellContentRival.forEach((cell, index) => {
 
 const ships = document.querySelectorAll(".ship");
 for (let i = 0; i < ships.length; i++) {
-  ships[i].addEventListener("click", (e) => shipClick(e, boardSelf, gameStart));
+  ships[i].addEventListener("click", (e) =>
+    shipClick(e, boardPlayer, gameStart)
+  );
   ships[i].addEventListener("dragstart", (e) => dragStart(e, gameStart));
   ships[i].addEventListener("dragend", (e) => dragEnd(e, gameStart));
 }
@@ -118,7 +120,7 @@ for (let i = 0; i < battlefieldCell.length; i++) {
     dragOver(e, gameStart)
   );
   battlefieldCell[i].addEventListener("drop", (e) =>
-    drop(e, boardSelf, gameStart)
+    drop(e, boardPlayer, gameStart)
   );
 }
 

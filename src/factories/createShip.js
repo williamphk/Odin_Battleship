@@ -9,7 +9,7 @@ const createShip = (shipName, shipLength, direction, group) => {
       shipLength: shipLength,
       //direction is either horizontal or vertical
       direction: direction,
-      //group is either self or rival
+      //group is either player or bot
       group: group,
       //creating an array of length shipLength filled with undefined values
       array: [...Array(shipLength)],

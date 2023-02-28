@@ -1,6 +1,6 @@
 function createShipDiv(id, length, width) {
   const shipDiv = document.createElement("div");
-  shipDiv.className = "shipbox ship";
+  shipDiv.className = "ship";
   shipDiv.id = "drag" + id;
   shipDiv.setAttribute("data-length", length);
   shipDiv.setAttribute("draggable", true);

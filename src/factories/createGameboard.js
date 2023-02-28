@@ -1,6 +1,6 @@
 import { randomX, randomY } from "../utils/random";
 
-//creating an array of ships for self and rival
+//creating an array of ships for player and bot
 const createGameboard = () => {
   return {
     board: [
@@ -19,49 +19,31 @@ const createGameboard = () => {
       let spaceAvailable = true;
       if (direction === "horizontal") {
         for (let i = 0; i < shipObj.shipLength; i++) {
-          // console.log(
-          //   shipObj.shipName,
-          //   direction,
-          //   x,
-          //   y + i,
-          //   this.board[x][y + i]
-          // );
           if (
             this.board[x][y + i] !== null ||
             this.board[x][y + i] === undefined
           ) {
             spaceAvailable = false;
-            // console.log("space not available");
           }
         }
         if (spaceAvailable) {
           for (let i = 0; i < shipObj.shipLength; i++) {
             this.board[x][y + i] = shipObj;
           }
-          // console.log("space available");
-          // console.log(
-          //   `placed ${shipObj.shipName} at ${x} ${y} Direction:${direction}`
-          // );
           this.board[x][y] = shipObj;
         } else if (!spaceAvailable) {
           this.placeShip(randomX(), randomY(), shipObj, direction);
         }
       } else if (direction === "vertical") {
         for (let i = 0; i < shipObj.shipLength; i++) {
-          // console.log(shipObj.shipName, direction, x + i, y, this.board[x][y]);
           if (this.board[x + i]?.[y] || this.board[x + i]?.[y] === undefined) {
             spaceAvailable = false;
-            // console.log("space not available");
           }
         }
         if (spaceAvailable) {
           for (let i = 0; i < shipObj.shipLength; i++) {
             this.board[x + i][y] = shipObj;
           }
-          // console.log("space available");
-          // console.log(
-          //   `placed ${shipObj.shipName} at ${x} ${y} Direction:${direction}`
-          // );
           this.board[x][y] = shipObj;
         } else if (!spaceAvailable) {
           this.placeShip(randomX(), randomY(), shipObj, direction);
