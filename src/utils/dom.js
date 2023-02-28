@@ -1,8 +1,10 @@
 import { createShipDiv } from "./createShipDiv.js";
+import { createShipSubDiv } from "./createShipDiv.js";
 
 function dom() {
   console.log("dom");
-  const battlefields = document.querySelector(".battlefields");
+  const playerBattlefield = document.querySelector(".player-battlefield");
+  const botBattlefield = document.querySelector(".bot-battlefield");
 
   const tablePlayer = document.createElement("table");
   const tableBot = document.createElement("table");
@@ -11,8 +13,8 @@ function dom() {
   tablePlayer.className = "battlefield-table-container__player";
   tableBot.className = "battlefield-table-container__bot";
 
-  battlefields.appendChild(tablePlayer);
-  battlefields.appendChild(tableBot);
+  playerBattlefield.appendChild(tablePlayer);
+  botBattlefield.appendChild(tableBot);
 
   for (let i = 0; i < 10; i++) {
     const trPlayer = document.createElement("tr");
@@ -62,6 +64,48 @@ function dom() {
   const shipDiv8 = createShipDiv(8, 3, "98px");
   const shipDiv9 = createShipDiv(9, 3, "98px");
   const shipDiv10 = createShipDiv(10, 4, "131px");
+
+  const shipSubDiv11 = createShipSubDiv(1);
+  const shipSubDiv21 = createShipSubDiv(1);
+  const shipSubDiv31 = createShipSubDiv(1);
+  const shipSubDiv41 = createShipSubDiv(1);
+  const shipSubDiv51 = createShipSubDiv(1);
+  const shipSubDiv52 = createShipSubDiv(2);
+  const shipSubDiv61 = createShipSubDiv(1);
+  const shipSubDiv62 = createShipSubDiv(2);
+  const shipSubDiv71 = createShipSubDiv(1);
+  const shipSubDiv72 = createShipSubDiv(2);
+  const shipSubDiv81 = createShipSubDiv(1);
+  const shipSubDiv82 = createShipSubDiv(2);
+  const shipSubDiv83 = createShipSubDiv(3);
+  const shipSubDiv91 = createShipSubDiv(1);
+  const shipSubDiv92 = createShipSubDiv(2);
+  const shipSubDiv93 = createShipSubDiv(3);
+  const shipSubDiv101 = createShipSubDiv(1);
+  const shipSubDiv102 = createShipSubDiv(2);
+  const shipSubDiv103 = createShipSubDiv(3);
+  const shipSubDiv104 = createShipSubDiv(4);
+
+  shipDiv1.appendChild(shipSubDiv11);
+  shipDiv2.appendChild(shipSubDiv21);
+  shipDiv3.appendChild(shipSubDiv31);
+  shipDiv4.appendChild(shipSubDiv41);
+  shipDiv5.appendChild(shipSubDiv51);
+  shipDiv5.appendChild(shipSubDiv52);
+  shipDiv6.appendChild(shipSubDiv61);
+  shipDiv6.appendChild(shipSubDiv62);
+  shipDiv7.appendChild(shipSubDiv71);
+  shipDiv7.appendChild(shipSubDiv72);
+  shipDiv8.appendChild(shipSubDiv81);
+  shipDiv8.appendChild(shipSubDiv82);
+  shipDiv8.appendChild(shipSubDiv83);
+  shipDiv9.appendChild(shipSubDiv91);
+  shipDiv9.appendChild(shipSubDiv92);
+  shipDiv9.appendChild(shipSubDiv93);
+  shipDiv10.appendChild(shipSubDiv101);
+  shipDiv10.appendChild(shipSubDiv102);
+  shipDiv10.appendChild(shipSubDiv103);
+  shipDiv10.appendChild(shipSubDiv104);
 
   const cellWithShip1 = document.querySelector(
     '.battle-cell-content.battle-cell-content__player[data-x="0"][data-y="0"]'

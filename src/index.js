@@ -105,6 +105,16 @@ battleCellContentBot.forEach((cell, index) => {
   );
 });
 
+let selectedSubDiv = null;
+
+const shipSubDiv = document.querySelectorAll(".ship-sub-div");
+for (let i = 0; i < shipSubDiv.length; i++) {
+  shipSubDiv[i].addEventListener("mouseover", (e) => {
+    selectedSubDiv = e.target.getAttribute("data-div");
+    console.log(selectedSubDiv);
+  });
+}
+
 const ships = document.querySelectorAll(".ship");
 for (let i = 0; i < ships.length; i++) {
   ships[i].addEventListener("click", (e) =>
@@ -120,10 +130,16 @@ for (let i = 0; i < battlefieldCell.length; i++) {
     dragOver(e, gameStart)
   );
   battlefieldCell[i].addEventListener("drop", (e) =>
-    drop(e, boardPlayer, gameStart)
+    drop(e, boardPlayer, gameStart, selectedSubDiv)
   );
 }
 
 document.getElementById("start-btn").onclick = () => {
+  const td = document.querySelectorAll(".battlefield-cell");
+  td.forEach((cell) => {
+    cell.style.borderTop = "0.5px solid rgb(0, 38, 255)";
+    cell.style.borderLeft = "0.5px solid rgb(0, 38, 255)";
+    cell.style.backgroundColor = "rgb(228, 228, 228)";
+  });
   gameStart = true;
 };

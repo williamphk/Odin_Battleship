@@ -8,4 +8,13 @@ function createShipDiv(id, length, width) {
   return shipDiv;
 }
 
-export { createShipDiv };
+function createShipSubDiv(divID) {
+  const shipSubDiv = document.createElement("div");
+  shipSubDiv.className = "ship-sub-div";
+  shipSubDiv.style.width = "32px";
+  shipSubDiv.style.height = "32px";
+  shipSubDiv.setAttribute("data-div", divID);
+  return shipSubDiv;
+}
+
+export { createShipDiv, createShipSubDiv };
