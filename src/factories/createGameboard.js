@@ -63,7 +63,7 @@ const createGameboard = () => {
             " for ship ",
             shipObj
           );
-          if (x + shipObj.shipLength > 9) {
+          if (x + shipObj.shipLength >= 9) {
             console.log("Out of range!" + x);
             spaceAvailable = false;
           } else if (
