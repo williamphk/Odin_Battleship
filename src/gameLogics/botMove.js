@@ -30,8 +30,6 @@ const botMove = (
         div.style.zIndex = "10";
         div.innerHTML = "H";
         cell.appendChild(div);
-        const hitCount = document.getElementById("hit-count");
-        hitCount.innerHTML = `You hit: ${boardBot.hitCount()} AI hit: ${boardPlayer.hitCount()}`;
       } else {
         cell.style.position = "relative";
         cell.innerHTML = "H";

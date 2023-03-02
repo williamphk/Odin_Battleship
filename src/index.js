@@ -1,6 +1,6 @@
 //import layout functions
 import { header } from "./layout/header";
-import { battiefield } from "./layout/battlefield";
+import { main } from "./layout/main";
 import { footer } from "./layout/footer";
 
 //import factory functions
@@ -20,7 +20,7 @@ import { playerMove } from "./gameLogics/playerMove";
 import { randomX, randomY, randomDirection } from "./utils/random";
 
 header();
-battiefield();
+main();
 footer();
 
 let gameStart = false;

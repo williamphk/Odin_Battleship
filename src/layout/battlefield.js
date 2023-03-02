@@ -2,9 +2,28 @@ import { createShipDiv } from "../utils/createShipDiv.js";
 import { createShipSubDiv } from "../utils/createShipDiv.js";
 
 const battiefield = () => {
-  console.log("dom");
-  const playerBattlefield = document.querySelector(".player-battlefield");
-  const botBattlefield = document.querySelector(".bot-battlefield");
+  const game = document.createElement("div");
+  game.className = "game";
+  game.style.display = "flex";
+  game.style.flexDirection = "column";
+  game.style.alignItems = "center";
+  game.style.gap = "20px";
+
+  const battlefields = document.createElement("div");
+  battlefields.className = "battlefields";
+
+  const playerBattlefield = document.createElement("div");
+  const botBattlefield = document.createElement("div");
+
+  battlefields.appendChild(playerBattlefield);
+  battlefields.appendChild(botBattlefield);
+
+  const main = document.querySelector("main");
+  game.appendChild(battlefields);
+  main.appendChild(game);
+
+  playerBattlefield.className = "player-battlefield";
+  botBattlefield.className = "bot-battlefield";
 
   const tablePlayer = document.createElement("table");
   const tableBot = document.createElement("table");
@@ -156,6 +175,13 @@ const battiefield = () => {
     '.battle-cell-content.battle-cell-content__player[data-x="8"][data-y="3"]'
   );
   cellWithShip10.appendChild(shipDiv10);
+
+  const startBtn = document.createElement("button");
+  startBtn.className = "start-btn";
+  startBtn.id = "start-btn";
+  startBtn.textContent = "Start";
+
+  game.appendChild(startBtn);
 };
 
 export { battiefield };

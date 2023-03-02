@@ -1,19 +1,28 @@
+import { navClick } from "../eventHandlers/navClick";
+
 const header = () => {
   const header = document.createElement("header");
   const siteNameLink = document.createElement("a");
   siteNameLink.href = "#";
+  siteNameLink.onclick = (e) => {
+    navClick(e);
+  };
   const siteName = document.createElement("h2");
-  const siteNameText = document.createTextNode("Battleship");
+  siteName.className = "site-name";
+  siteName.innerHTML =
+    "<span>B</span><span>a</span><span>t</span><span>t</span><span>l</span><span>e</span><span>s</span><span>h</span><span>i</span><span>p</span>";
   document.body.prepend(header);
   header.appendChild(siteNameLink);
   siteNameLink.appendChild(siteName);
-  siteName.appendChild(siteNameText);
 
   const nav = document.createElement("nav");
   const list = document.createElement("ul");
   const homeListItem = document.createElement("li");
   const homeLink = document.createElement("a");
   homeLink.href = "#home";
+  homeLink.onclick = (e) => {
+    navClick(e);
+  };
   const homeLinkText = document.createTextNode("Home");
   homeLink.appendChild(homeLinkText);
   homeListItem.appendChild(homeLink);
@@ -22,6 +31,9 @@ const header = () => {
   const howToPlayListItem = document.createElement("li");
   const howToPlayLink = document.createElement("a");
   howToPlayLink.href = "#how-to-play";
+  howToPlayLink.onclick = (e) => {
+    navClick(e);
+  };
   const howToPlayLinkText = document.createTextNode("How To Play");
   howToPlayLink.appendChild(howToPlayLinkText);
   howToPlayListItem.appendChild(howToPlayLink);

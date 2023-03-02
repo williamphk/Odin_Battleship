@@ -7,7 +7,9 @@ const footer = () => {
 
   p.appendChild(text);
   footer.appendChild(p);
-  document.body.appendChild(footer);
+
+  const main = document.querySelector("main");
+  main.after(footer);
 };
 
 export { footer };

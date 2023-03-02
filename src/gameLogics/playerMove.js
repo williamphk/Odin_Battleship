@@ -17,8 +17,6 @@ const playerMove = (
   if (cell.innerHTML === "。") return;
   if (isGameEnd) return;
 
-  const hitCount = document.getElementById("hit-count");
-  hitCount.innerHTML = `You hit: ${boardBot.hitCount()} AI hit: ${boardPlayer.hitCount()}`;
   const battleCellContentBot = document.querySelectorAll(
     ".battle-cell-content__bot"
   );
