@@ -29,12 +29,7 @@ const playerMove = (
   );
   if (boardBot.isAllShipSink()) {
     result.innerHTML = "You win";
-    hitCount.innerHTML = `You hit: ${boardBot.hitCount()} AI hit: ${boardPlayer.hitCount()}`;
     isGameEnd = true;
-    document.getElementById("start-btn").innerHTML = "Restart";
-    document.getElementById("start-btn").onclick = () => {
-      window.location.reload();
-    };
   } else {
     gameLogic.turn = player2.name;
     botMove(

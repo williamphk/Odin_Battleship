@@ -143,6 +143,10 @@ for (let i = 0; i < battlefieldCell.length; i++) {
 }
 
 document.getElementById("start-btn").onclick = () => {
+  document.getElementById("start-btn").innerHTML = "Restart";
+  document.getElementById("start-btn").onclick = () => {
+    window.location.reload();
+  };
   const td = document.querySelectorAll(".battlefield-cell");
   td.forEach((cell) => {
     cell.style.borderTop = "0.5px solid rgb(0, 38, 255)";

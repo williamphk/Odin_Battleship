@@ -9,11 +9,25 @@ const battiefield = () => {
   game.style.alignItems = "center";
   game.style.gap = "20px";
 
+  const result = document.createElement("div");
+  result.className = "result";
+
+  game.appendChild(result);
+
   const battlefields = document.createElement("div");
   battlefields.className = "battlefields";
 
   const playerBattlefield = document.createElement("div");
   const botBattlefield = document.createElement("div");
+
+  const playerBattlefieldTitle = document.createElement("h2");
+  const botBattlefieldTitle = document.createElement("h2");
+
+  playerBattlefieldTitle.innerHTML = "Your board";
+  botBattlefieldTitle.innerHTML = "Enemy's board";
+
+  playerBattlefield.appendChild(playerBattlefieldTitle);
+  botBattlefield.appendChild(botBattlefieldTitle);
 
   battlefields.appendChild(playerBattlefield);
   battlefields.appendChild(botBattlefield);
