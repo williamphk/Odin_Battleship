@@ -129,12 +129,17 @@ kbd {
 }
 
 /* Battlefields */
+
+.result {
+  margin-top: 6em;
+  height: 1em;
+}
+
 .battlefields {
   display: flex;
   width: 100%;
   justify-content: center;
   gap: 5em;
-  padding-top: 6em;
 }
 
 table {
