@@ -1,4 +1,4 @@
-function shipClick(ev, boardPlayer, gameStart) {
+const shipClick = (ev, boardPlayer, gameStart) => {
   if (gameStart === true) return;
   let shipX = Number(
     ev.srcElement.parentElement.parentElement.attributes[1].value
@@ -49,6 +49,6 @@ function shipClick(ev, boardPlayer, gameStart) {
       shipObj.direction = "horizontal";
     }
   }
-}
+};
 
 export { shipClick };

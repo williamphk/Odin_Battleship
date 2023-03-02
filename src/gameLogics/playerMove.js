@@ -1,7 +1,7 @@
 import { botMove } from "./botMove";
 import { randomX, randomY } from "../utils/random.js";
 
-function playerMove(
+const playerMove = (
   cell,
   index,
   gameStart,
@@ -11,7 +11,7 @@ function playerMove(
   isGameEnd,
   player1,
   player2
-) {
+) => {
   if (!gameStart) return;
   if (gameLogic.turn === player2.name) return;
   if (cell.innerHTML === "。") return;
@@ -49,6 +49,6 @@ function playerMove(
       isGameEnd
     );
   }
-}
+};
 
 export { playerMove };

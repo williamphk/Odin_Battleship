@@ -1,4 +1,4 @@
-function drop(ev, boardPlayer, gameStart, selectedSubDiv) {
+const drop = (ev, boardPlayer, gameStart, selectedSubDiv) => {
   console.log("drop");
   if (gameStart === true) return;
   ev.preventDefault();
@@ -90,6 +90,6 @@ function drop(ev, boardPlayer, gameStart, selectedSubDiv) {
       console.log(boardPlayer.board);
     }
   }
-}
+};
 
 export { drop };

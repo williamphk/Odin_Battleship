@@ -1,7 +1,7 @@
-import { createShipDiv } from "./createShipDiv.js";
-import { createShipSubDiv } from "./createShipDiv.js";
+import { createShipDiv } from "../utils/createShipDiv.js";
+import { createShipSubDiv } from "../utils/createShipDiv.js";
 
-function dom() {
+const battiefield = () => {
   console.log("dom");
   const playerBattlefield = document.querySelector(".player-battlefield");
   const botBattlefield = document.querySelector(".bot-battlefield");
@@ -156,6 +156,6 @@ function dom() {
     '.battle-cell-content.battle-cell-content__player[data-x="8"][data-y="3"]'
   );
   cellWithShip10.appendChild(shipDiv10);
-}
+};
 
-export { dom };
+export { battiefield };

@@ -1,3 +1,8 @@
+//import layout functions
+import { header } from "./layout/header";
+import { battiefield } from "./layout/battlefield";
+import { footer } from "./layout/footer";
+
 //import factory functions
 import { createShip } from "./factories/createShip";
 import { createGameboard } from "./factories/createGameboard";
@@ -12,10 +17,11 @@ import { drop } from "./eventHandlers/drop";
 import { playerMove } from "./gameLogics/playerMove";
 
 //import helper functions
-import { dom } from "./utils/dom";
 import { randomX, randomY, randomDirection } from "./utils/random";
 
-dom();
+header();
+battiefield();
+footer();
 
 let gameStart = false;
 let isGameEnd = false;

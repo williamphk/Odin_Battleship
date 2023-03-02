@@ -1,4 +1,4 @@
-function dragStart(ev, gameStart) {
+const dragStart = (ev, gameStart) => {
   console.log(ev);
   if (gameStart === true) return;
   ev.dataTransfer.setData("target", ev.target.id);
@@ -11,6 +11,6 @@ function dragStart(ev, gameStart) {
     "srcY",
     ev.srcElement.parentElement.attributes[2].value
   );
-}
+};
 
 export { dragStart };
