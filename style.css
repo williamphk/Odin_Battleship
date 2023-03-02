@@ -5,6 +5,14 @@
   padding: 0;
 }
 
+body {
+  height: inherit;
+  font-family: "Poppins", sans-serif;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Header */
 header {
   display: flex;
   flex-direction: column;
@@ -13,8 +21,65 @@ header {
   padding-left: 1.5em;
 }
 
-header a h2 {
+header > a {
   border-bottom: 2px solid black;
+}
+
+.site-name:hover span {
+  display: inline-block;
+  animation: wave 1.1s linear infinite;
+}
+
+.site-name span:nth-child(1) {
+  animation-delay: -0.27s;
+}
+
+.site-name span:nth-child(2) {
+  animation-delay: -0.24s;
+}
+
+.site-name span:nth-child(3) {
+  animation-delay: -0.21s;
+}
+
+.site-name span:nth-child(4) {
+  animation-delay: -0.18s;
+}
+
+.site-name span:nth-child(5) {
+  animation-delay: -0.15s;
+}
+
+.site-name span:nth-child(6) {
+  animation-delay: -0.12s;
+}
+
+.site-name span:nth-child(7) {
+  animation-delay: -0.09s;
+}
+
+.site-name span:nth-child(8) {
+  animation-delay: -0.06s;
+}
+
+.site-name span:nth-child(9) {
+  animation-delay: -0.03s;
+}
+
+.site-name span:nth-child(10) {
+  animation-delay: 0s;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 nav ul {
@@ -31,15 +96,45 @@ a {
   color: #000000;
 }
 
-body {
-  height: inherit;
-  font-family: "Poppins", sans-serif;
+a:hover {
+  color: rgb(35, 186, 209);
 }
 
+/* How to Play */
+.how-to-play {
+  padding-top: 1.5em;
+  padding-left: 6em;
+}
+
+.gameplay-list,
+.game-rules-list,
+.controls-list {
+  margin-bottom: 1.5em;
+  width: 70%;
+}
+
+kbd {
+  background-color: #eee;
+  border-radius: 3px;
+  border: 1px solid #b4b4b4;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+    0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+  color: #333;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+
+/* Battlefields */
 .battlefields {
   display: flex;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 5em;
+  padding-top: 6em;
 }
 
 table {
@@ -108,6 +203,11 @@ td {
   color: #ffffff;
 }
 
+.ship-sub-div:hover {
+  background-color: rgb(177, 177, 177);
+}
+
+/* Start Button */
 .start-btn {
   width: 100px;
   height: 50px;
@@ -124,6 +224,6 @@ td {
   background-color: rgb(177, 177, 177);
 }
 
-.ship-sub-div:hover {
-  background-color: rgb(177, 177, 177);
+footer {
+  padding-left: 1.5em;
 }
