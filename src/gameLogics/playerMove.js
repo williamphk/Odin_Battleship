@@ -44,7 +44,7 @@ const playerMove = (
     cell.innerHTML = "。";
   }
   if (boardBot.isAllShipSink()) {
-    result.innerHTML = "You win";
+    result.innerHTML = "You won!";
     isGameEnd = true;
   } else {
     gameLogic.turn = player2.name;

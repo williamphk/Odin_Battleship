@@ -9,7 +9,7 @@ const battiefield = () => {
   game.style.alignItems = "center";
   game.style.gap = "20px";
 
-  const result = document.createElement("div");
+  const result = document.createElement("h3");
   result.className = "result";
 
   game.appendChild(result);

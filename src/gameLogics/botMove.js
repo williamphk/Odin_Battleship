@@ -40,7 +40,7 @@ const botMove = (
       cell.innerHTML = "。";
     }
     if (boardPlayer.isAllShipSink()) {
-      result.innerHTML = "AI win";
+      result.innerHTML = "Bot won!";
       isGameEnd = true;
       document.getElementById("start-btn").innerHTML = "Restart";
       document.getElementById("start-btn").onclick = () => {
