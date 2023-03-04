@@ -1,6 +1,8 @@
 import { botMove } from "./botMove";
 import { randomX, randomY } from "../utils/random.js";
 
+let isGameEnd = false;
+
 const playerMove = (
   cell,
   index,
@@ -8,7 +10,6 @@ const playerMove = (
   gameLogic,
   boardBot,
   boardPlayer,
-  isGameEnd,
   player1,
   player2
 ) => {
@@ -22,11 +23,26 @@ const playerMove = (
   );
   const result = document.querySelector(".result");
 
-  cell.innerHTML = "。";
   boardBot.receiveAttack(
     battleCellContentBot[index].dataset.x,
     battleCellContentBot[index].dataset.y
   );
+  if (
+    boardBot.isHit(
+      battleCellContentBot[index].dataset.x,
+      battleCellContentBot[index].dataset.y
+    )
+  ) {
+    cell.innerHTML = "X";
+    cell.style.backgroundColor = "red";
+  } else if (
+    boardBot.isMiss(
+      battleCellContentBot[index].dataset.x,
+      battleCellContentBot[index].dataset.y
+    )
+  ) {
+    cell.innerHTML = "。";
+  }
   if (boardBot.isAllShipSink()) {
     result.innerHTML = "You win";
     isGameEnd = true;

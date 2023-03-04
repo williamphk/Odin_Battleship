@@ -28,16 +28,16 @@ const botMove = (
         div.style.width = "100%";
         div.style.height = "100%";
         div.style.zIndex = "10";
-        div.innerHTML = "H";
+        div.innerHTML = "X";
         cell.appendChild(div);
       } else {
         cell.style.position = "relative";
-        cell.innerHTML = "H";
+        cell.innerHTML = "X";
         cell.style.zIndex = "3";
         cell.style.backgroundColor = "red";
       }
     } else if (boardPlayer.isMiss(x, y)) {
-      cell.innerHTML = "M";
+      cell.innerHTML = "。";
     }
     if (boardPlayer.isAllShipSink()) {
       result.innerHTML = "AI win";

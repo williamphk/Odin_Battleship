@@ -24,7 +24,6 @@ main();
 footer();
 
 let gameStart = false;
-let isGameEnd = false;
 
 //creating ships for player and bot
 const playerShip1 = createShip("ship1", 1, "horizontal", "player");
@@ -106,7 +105,6 @@ battleCellContentBot.forEach((cell, index) => {
       gameLogic,
       boardBot,
       boardPlayer,
-      isGameEnd,
       player1,
       player2
     )
