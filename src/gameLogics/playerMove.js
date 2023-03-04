@@ -6,14 +6,14 @@ let isGameEnd = false;
 const playerMove = (
   cell,
   index,
-  gameStart,
+  isGameStart,
   gameLogic,
   boardBot,
   boardPlayer,
   player1,
   player2
 ) => {
-  if (!gameStart) return;
+  if (!isGameStart) return;
   if (gameLogic.turn === player2.name) return;
   if (cell.innerHTML === "。") return;
   if (isGameEnd) return;

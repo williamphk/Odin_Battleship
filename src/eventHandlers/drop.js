@@ -24,7 +24,7 @@ const drop = (ev, boardPlayer, gameStart, selectedSubDiv) => {
         spaceAvailable = false;
       }
     }
-    console.log(spaceAvailable);
+    //console.log(spaceAvailable);
     if (!spaceAvailable) return;
     else if (spaceAvailable) {
       if (selectedSubDiv == 2) {
@@ -93,7 +93,7 @@ const drop = (ev, boardPlayer, gameStart, selectedSubDiv) => {
         "vertical"
       );
       boardPlayer.placeShip(targetX, targetY, shipObj, "vertical");
-      console.log(boardPlayer.board);
+      //console.log(boardPlayer.board);
     }
   }
 };

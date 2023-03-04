@@ -42,10 +42,6 @@ const botMove = (
     if (boardPlayer.isAllShipSink()) {
       result.innerHTML = "Bot won!";
       isGameEnd = true;
-      document.getElementById("start-btn").innerHTML = "Restart";
-      document.getElementById("start-btn").onclick = () => {
-        window.location.reload();
-      };
     } else {
       gameLogic.turn = player1.name;
     }

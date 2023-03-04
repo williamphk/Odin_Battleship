@@ -18,10 +18,10 @@ const createGameboard = () => {
     placeShip(x, y, shipObj, direction) {
       let spaceAvailable = true;
       if (direction === "horizontal") {
-        console.log("horizontal");
+        //console.log("horizontal");
         for (let i = 0; i < shipObj.shipLength; i++) {
-          console.log("checking available", x, y + i, " for ship ", shipObj);
-          console.log("10", this.board[x][10]);
+          //console.log("checking available", x, y + i, " for ship ", shipObj);
+          //console.log("10", this.board[x][10]);
           if (
             (this.board[x][y + i] !== null &&
               this.board[x][y + i] !== shipObj) ||
@@ -31,22 +31,22 @@ const createGameboard = () => {
           }
         }
         if (spaceAvailable) {
-          console.log("placed!");
+          //console.log("placed!");
           this.board[x][y] = shipObj;
           for (let i = 0; i < shipObj.shipLength; i++) {
             this.board[x][y + i] = shipObj;
           }
         } else if (!spaceAvailable) {
-          console.log("random!");
+          //console.log("random!");
           this.placeShip(randomX(), randomY(), shipObj, direction);
         }
       } else if (direction === "vertical") {
-        console.log("vertical");
+        //console.log("vertical");
 
         for (let i = 0; i < shipObj.shipLength; i++) {
-          console.log("checking available", x + i, y, " for ship ", shipObj);
+          //console.log("checking available", x + i, y, " for ship ", shipObj);
           if (x + shipObj.shipLength - 1 > 9) {
-            console.log("Out of range!" + x + shipObj.shipLength - 1);
+            //console.log("Out of range!" + x + shipObj.shipLength - 1);
             spaceAvailable = false;
           } else if (
             (this.board[x + i][y] !== null &&
@@ -57,16 +57,16 @@ const createGameboard = () => {
           }
         }
         if (spaceAvailable) {
-          console.log("placed!");
+          //console.log("placed!");
           this.board[x][y] = shipObj;
           for (let i = 0; i < shipObj.shipLength; i++) {
             this.board[x + i][y] = shipObj;
           }
         } else if (!spaceAvailable) {
-          console.log("random!");
+          //console.log("random!");
           this.placeShip(randomX(), randomY(), shipObj, direction);
         }
-        console.log(this.board);
+        //console.log(this.board);
       }
     },
     removeShip(x, y, shipObj, direction) {
