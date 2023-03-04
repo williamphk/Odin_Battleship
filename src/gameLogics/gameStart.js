@@ -1,6 +1,8 @@
 //import helper functions
 import { randomX, randomY, randomDirection } from "../utils/random";
 
+import { battlefield } from "../layout/battlefield";
+
 const gameStart = (
   playerShip1,
   playerShip2,
@@ -15,6 +17,9 @@ const gameStart = (
   boardPlayer,
   boardBot
 ) => {
+  boardPlayer.resetBoard();
+  boardBot.resetBoard();
+
   //placing ships on bot gameboard
   boardBot.placeShip(randomX(), randomY(), botShip1, randomDirection());
   boardBot.placeShip(randomX(), randomY(), botShip2, randomDirection());

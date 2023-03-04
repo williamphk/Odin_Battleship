@@ -15,7 +15,7 @@ const playerMove = (
 ) => {
   if (!isGameStart) return;
   if (gameLogic.turn === player2.name) return;
-  if (cell.innerHTML === "。") return;
+  if (cell.innerHTML === "。" || cell.innerHTML === "X") return;
   if (isGameEnd) return;
 
   const battleCellContentBot = document.querySelectorAll(

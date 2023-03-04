@@ -149,21 +149,21 @@ table {
   user-select: none;
 }
 
-td {
+.battlefield-cell {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-left: 0.5px solid rgb(0, 0, 0);
+  border-top: 0.5px solid rgb(0, 0, 0);
   border-collapse: collapse;
   display: table-cell;
   user-select: none;
 }
 
-td {
-  border-left: 0.5px solid rgb(0, 0, 0);
-  border-top: 0.5px solid rgb(0, 0, 0);
-}
-
-.battlefield-cell {
-  position: relative;
-  width: 32px;
-  height: 32px;
+.battlefield-cell--active {
+  border-top: 0.5px solid rgb(0, 38, 25);
+  border-left: 0.5px solid rgb(0, 38, 255);
+  background-color: rgb(228, 228, 228);
 }
 
 .battle-cell-content {

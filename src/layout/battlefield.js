@@ -129,6 +129,35 @@ const battiefield = () => {
   shipDiv5.appendChild(shipSubDiv54);
   shipDiv5.appendChild(shipSubDiv55);
 
+  resetShipDivPosition(shipDiv1, shipDiv2, shipDiv3, shipDiv4, shipDiv5);
+
+  const startBtn = document.createElement("button");
+  startBtn.className = "start-btn";
+  startBtn.id = "start-btn";
+  startBtn.textContent = "Start";
+
+  game.appendChild(startBtn);
+};
+
+const resetShipDivDirection = () => {
+  console.log("resetShipDivDirection");
+  const shipDivs = document.querySelectorAll(".ship");
+  shipDivs.forEach((shipDiv) => {
+    let shipSize = shipDiv.dataset.length * 32;
+    console.log(shipSize);
+    shipDiv.style.flexDirection = "row";
+    shipDiv.style.width = shipSize + "px";
+    shipDiv.style.height = "32px";
+  });
+};
+
+const resetShipDivPosition = (
+  shipDiv1,
+  shipDiv2,
+  shipDiv3,
+  shipDiv4,
+  shipDiv5
+) => {
   const cellWithShip1 = document.querySelector(
     '.battle-cell-content.battle-cell-content__player[data-x="0"][data-y="0"]'
   );
@@ -153,13 +182,16 @@ const battiefield = () => {
     '.battle-cell-content.battle-cell-content__player[data-x="8"][data-y="0"]'
   );
   cellWithShip5.appendChild(shipDiv5);
-
-  const startBtn = document.createElement("button");
-  startBtn.className = "start-btn";
-  startBtn.id = "start-btn";
-  startBtn.textContent = "Start";
-
-  game.appendChild(startBtn);
 };
 
-export { battiefield };
+const resetBoard = () => {
+  const battleCellContent = document.querySelectorAll(".battle-cell-content");
+  battleCellContent.forEach((cell) => {
+    cell.innerHTML = "";
+    cell.style.removeProperty("background-color");
+    cell.style.removeProperty("z-index");
+    cell.style.removeProperty("position");
+  });
+};
+
+export { battiefield, resetShipDivDirection, resetShipDivPosition, resetBoard };

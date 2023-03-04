@@ -13,6 +13,7 @@ import { dragOver } from "../eventHandlers/dragOver";
 import { dragEnd } from "../eventHandlers/dragEnd";
 import { drop } from "../eventHandlers/drop";
 import { playerMove } from "./playerMove";
+import { startClick } from "../eventHandlers/startClick";
 
 const initGame = () => {
   //creating ships for player and bot
@@ -106,24 +107,25 @@ const initGame = () => {
     );
   }
 
-  document.getElementById("start-btn").onclick = () => {
-    console.log("Game started");
-    document.getElementById("start-btn").innerHTML = "Restart";
-    document.getElementById("start-btn").onclick = () => {
-      window.location.reload();
-    };
-    const draggable = document.querySelectorAll(".ship");
-    draggable.forEach((ship) => {
-      ship.draggable = false;
-    });
-    const td = document.querySelectorAll(".battlefield-cell");
-    td.forEach((cell) => {
-      cell.style.borderTop = "0.5px solid rgb(0, 38, 255)";
-      cell.style.borderLeft = "0.5px solid rgb(0, 38, 255)";
-      cell.style.backgroundColor = "rgb(228, 228, 228)";
-    });
-    isGameStart = true;
-  };
+  document.getElementById("start-btn").addEventListener("click", (e) => {
+    startClick(
+      e,
+      playerShip1,
+      playerShip2,
+      playerShip3,
+      playerShip4,
+      playerShip5,
+      botShip1,
+      botShip2,
+      botShip3,
+      botShip4,
+      botShip5,
+      boardPlayer,
+      boardBot
+    );
+    isGameStart = !isGameStart;
+    console.log(isGameStart);
+  });
 };
 
 export { initGame };
