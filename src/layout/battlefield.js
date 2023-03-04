@@ -87,58 +87,47 @@ const battiefield = () => {
     }
   }
 
-  const shipDiv1 = createShipDiv(1, 1, "32px");
-  const shipDiv2 = createShipDiv(2, 1, "32px");
-  const shipDiv3 = createShipDiv(3, 1, "32px");
-  const shipDiv4 = createShipDiv(4, 1, "32px");
-  const shipDiv5 = createShipDiv(5, 2, "65px");
-  const shipDiv6 = createShipDiv(6, 2, "65px");
-  const shipDiv7 = createShipDiv(7, 2, "65px");
-  const shipDiv8 = createShipDiv(8, 3, "98px");
-  const shipDiv9 = createShipDiv(9, 3, "98px");
-  const shipDiv10 = createShipDiv(10, 4, "131px");
+  const shipDiv1 = createShipDiv(1, 2, "64.25px");
+  const shipDiv2 = createShipDiv(2, 3, "96.6px");
+  const shipDiv3 = createShipDiv(3, 3, "96.6px");
+  const shipDiv4 = createShipDiv(4, 4, "129px");
+  const shipDiv5 = createShipDiv(5, 5, "161.2px");
 
   const shipSubDiv11 = createShipSubDiv(1);
+  const shipSubDiv12 = createShipSubDiv(2);
   const shipSubDiv21 = createShipSubDiv(1);
+  const shipSubDiv22 = createShipSubDiv(2);
+  const shipSubDiv23 = createShipSubDiv(3);
   const shipSubDiv31 = createShipSubDiv(1);
+  const shipSubDiv32 = createShipSubDiv(2);
+  const shipSubDiv33 = createShipSubDiv(3);
   const shipSubDiv41 = createShipSubDiv(1);
+  const shipSubDiv42 = createShipSubDiv(2);
+  const shipSubDiv43 = createShipSubDiv(3);
+  const shipSubDiv44 = createShipSubDiv(4);
   const shipSubDiv51 = createShipSubDiv(1);
   const shipSubDiv52 = createShipSubDiv(2);
-  const shipSubDiv61 = createShipSubDiv(1);
-  const shipSubDiv62 = createShipSubDiv(2);
-  const shipSubDiv71 = createShipSubDiv(1);
-  const shipSubDiv72 = createShipSubDiv(2);
-  const shipSubDiv81 = createShipSubDiv(1);
-  const shipSubDiv82 = createShipSubDiv(2);
-  const shipSubDiv83 = createShipSubDiv(3);
-  const shipSubDiv91 = createShipSubDiv(1);
-  const shipSubDiv92 = createShipSubDiv(2);
-  const shipSubDiv93 = createShipSubDiv(3);
-  const shipSubDiv101 = createShipSubDiv(1);
-  const shipSubDiv102 = createShipSubDiv(2);
-  const shipSubDiv103 = createShipSubDiv(3);
-  const shipSubDiv104 = createShipSubDiv(4);
+  const shipSubDiv53 = createShipSubDiv(3);
+  const shipSubDiv54 = createShipSubDiv(4);
+  const shipSubDiv55 = createShipSubDiv(5);
 
   shipDiv1.appendChild(shipSubDiv11);
+  shipDiv1.appendChild(shipSubDiv12);
   shipDiv2.appendChild(shipSubDiv21);
+  shipDiv2.appendChild(shipSubDiv22);
+  shipDiv2.appendChild(shipSubDiv23);
   shipDiv3.appendChild(shipSubDiv31);
+  shipDiv3.appendChild(shipSubDiv32);
+  shipDiv3.appendChild(shipSubDiv33);
   shipDiv4.appendChild(shipSubDiv41);
+  shipDiv4.appendChild(shipSubDiv42);
+  shipDiv4.appendChild(shipSubDiv43);
+  shipDiv4.appendChild(shipSubDiv44);
   shipDiv5.appendChild(shipSubDiv51);
   shipDiv5.appendChild(shipSubDiv52);
-  shipDiv6.appendChild(shipSubDiv61);
-  shipDiv6.appendChild(shipSubDiv62);
-  shipDiv7.appendChild(shipSubDiv71);
-  shipDiv7.appendChild(shipSubDiv72);
-  shipDiv8.appendChild(shipSubDiv81);
-  shipDiv8.appendChild(shipSubDiv82);
-  shipDiv8.appendChild(shipSubDiv83);
-  shipDiv9.appendChild(shipSubDiv91);
-  shipDiv9.appendChild(shipSubDiv92);
-  shipDiv9.appendChild(shipSubDiv93);
-  shipDiv10.appendChild(shipSubDiv101);
-  shipDiv10.appendChild(shipSubDiv102);
-  shipDiv10.appendChild(shipSubDiv103);
-  shipDiv10.appendChild(shipSubDiv104);
+  shipDiv5.appendChild(shipSubDiv53);
+  shipDiv5.appendChild(shipSubDiv54);
+  shipDiv5.appendChild(shipSubDiv55);
 
   const cellWithShip1 = document.querySelector(
     '.battle-cell-content.battle-cell-content__player[data-x="0"][data-y="0"]'
@@ -146,49 +135,24 @@ const battiefield = () => {
   cellWithShip1.appendChild(shipDiv1);
 
   const cellWithShip2 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__player[data-x="0"][data-y="3"]'
+    '.battle-cell-content.battle-cell-content__player[data-x="2"][data-y="0"]'
   );
   cellWithShip2.appendChild(shipDiv2);
 
   const cellWithShip3 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__player[data-x="0"][data-y="6"]'
+    '.battle-cell-content.battle-cell-content__player[data-x="4"][data-y="0"]'
   );
   cellWithShip3.appendChild(shipDiv3);
 
   const cellWithShip4 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__player[data-x="0"][data-y="9"]'
+    '.battle-cell-content.battle-cell-content__player[data-x="6"][data-y="0"]'
   );
   cellWithShip4.appendChild(shipDiv4);
 
   const cellWithShip5 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__player[data-x="2"][data-y="1"]'
+    '.battle-cell-content.battle-cell-content__player[data-x="8"][data-y="0"]'
   );
   cellWithShip5.appendChild(shipDiv5);
-
-  const cellWithShip6 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__player[data-x="2"][data-y="7"]'
-  );
-  cellWithShip6.appendChild(shipDiv6);
-
-  const cellWithShip7 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__player[data-x="3"][data-y="4"]'
-  );
-  cellWithShip7.appendChild(shipDiv7);
-
-  const cellWithShip8 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__player[data-x="6"][data-y="1"]'
-  );
-  cellWithShip8.appendChild(shipDiv8);
-
-  const cellWithShip9 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__player[data-x="6"][data-y="6"]'
-  );
-  cellWithShip9.appendChild(shipDiv9);
-
-  const cellWithShip10 = document.querySelector(
-    '.battle-cell-content.battle-cell-content__player[data-x="8"][data-y="3"]'
-  );
-  cellWithShip10.appendChild(shipDiv10);
 
   const startBtn = document.createElement("button");
   startBtn.className = "start-btn";

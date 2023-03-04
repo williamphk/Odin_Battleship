@@ -1,5 +1,5 @@
 const createShip = (shipName, shipLength, direction, group) => {
-  if (shipLength > 4 || shipLength < 1) {
+  if (shipLength > 5 || shipLength < 1) {
     throw new Error("Wrong Length");
   } else
     return {

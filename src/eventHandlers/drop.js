@@ -36,6 +36,9 @@ const drop = (ev, boardPlayer, gameStart, selectedSubDiv) => {
       } else if (selectedSubDiv == 4) {
         targetX = ev.target.dataset.x;
         targetY = ev.target.dataset.y - 3;
+      } else if (selectedSubDiv == 5) {
+        targetX = ev.target.dataset.x;
+        targetY = ev.target.dataset.y - 4;
       }
       const targetCell = document.querySelector(
         `.battle-cell-content.battle-cell-content__player[data-x="${targetX}"][data-y="${targetY}"]`
@@ -74,6 +77,9 @@ const drop = (ev, boardPlayer, gameStart, selectedSubDiv) => {
         targetY = ev.target.dataset.y;
       } else if (selectedSubDiv == 4) {
         targetX = ev.target.dataset.x - 3;
+        targetY = ev.target.dataset.y;
+      } else if (selectedSubDiv == 5) {
+        targetX = ev.target.dataset.x - 4;
         targetY = ev.target.dataset.y;
       }
       const targetCell = document.querySelector(

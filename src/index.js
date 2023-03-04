@@ -26,27 +26,17 @@ footer();
 let gameStart = false;
 
 //creating ships for player and bot
-const playerShip1 = createShip("ship1", 1, "horizontal", "player");
-const playerShip2 = createShip("ship2", 1, "horizontal", "player");
-const playerShip3 = createShip("ship3", 1, "horizontal", "player");
-const playerShip4 = createShip("ship4", 1, "horizontal", "player");
-const playerShip5 = createShip("ship5", 2, "horizontal", "player");
-const playerShip6 = createShip("ship6", 2, "horizontal", "player");
-const playerShip7 = createShip("ship7", 2, "horizontal", "player");
-const playerShip8 = createShip("ship8", 3, "horizontal", "player");
-const playerShip9 = createShip("ship9", 3, "horizontal", "player");
-const playerShip10 = createShip("ship10", 4, "horizontal", "player");
+const playerShip1 = createShip("ship1", 2, "horizontal", "player");
+const playerShip2 = createShip("ship2", 3, "horizontal", "player");
+const playerShip3 = createShip("ship3", 3, "horizontal", "player");
+const playerShip4 = createShip("ship4", 4, "horizontal", "player");
+const playerShip5 = createShip("ship5", 5, "horizontal", "player");
 
-const botShip1 = createShip("ship1", 1, "horizontal", "bot");
-const botShip2 = createShip("ship2", 1, "horizontal", "bot");
-const botShip3 = createShip("ship3", 1, "horizontal", "bot");
-const botShip4 = createShip("ship4", 1, "horizontal", "bot");
-const botShip5 = createShip("ship5", 2, "horizontal", "bot");
-const botShip6 = createShip("ship6", 2, "horizontal", "bot");
-const botShip7 = createShip("ship7", 2, "horizontal", "bot");
-const botShip8 = createShip("ship8", 3, "horizontal", "bot");
-const botShip9 = createShip("ship9", 3, "horizontal", "bot");
-const botShip10 = createShip("ship10", 4, "horizontal", "bot");
+const botShip1 = createShip("ship1", 2, "horizontal", "bot");
+const botShip2 = createShip("ship2", 3, "horizontal", "bot");
+const botShip3 = createShip("ship3", 3, "horizontal", "bot");
+const botShip4 = createShip("ship4", 4, "horizontal", "bot");
+const botShip5 = createShip("ship5", 5, "horizontal", "bot");
 
 //creating gameboard for player and bot
 let boardPlayer = createGameboard();
@@ -61,26 +51,16 @@ boardBot.placeShip(randomX(), randomY(), botShip2, randomDirection());
 boardBot.placeShip(randomX(), randomY(), botShip3, randomDirection());
 boardBot.placeShip(randomX(), randomY(), botShip4, randomDirection());
 boardBot.placeShip(randomX(), randomY(), botShip5, randomDirection());
-boardBot.placeShip(randomX(), randomY(), botShip6, randomDirection());
-boardBot.placeShip(randomX(), randomY(), botShip7, randomDirection());
-boardBot.placeShip(randomX(), randomY(), botShip8, randomDirection());
-boardBot.placeShip(randomX(), randomY(), botShip9, randomDirection());
-boardBot.placeShip(randomX(), randomY(), botShip10, randomDirection());
 
 //placing ships on player gameboard
 boardPlayer.placeShip(0, 0, playerShip1, "horizontal");
-boardPlayer.placeShip(0, 3, playerShip2, "horizontal");
-boardPlayer.placeShip(0, 6, playerShip3, "horizontal");
-boardPlayer.placeShip(0, 9, playerShip4, "horizontal");
-boardPlayer.placeShip(2, 1, playerShip5, "horizontal");
-boardPlayer.placeShip(2, 7, playerShip6, "horizontal");
-boardPlayer.placeShip(3, 4, playerShip7, "horizontal");
-boardPlayer.placeShip(6, 1, playerShip8, "horizontal");
-boardPlayer.placeShip(6, 6, playerShip9, "horizontal");
-boardPlayer.placeShip(8, 3, playerShip10, "horizontal");
+boardPlayer.placeShip(2, 0, playerShip2, "horizontal");
+boardPlayer.placeShip(4, 0, playerShip3, "horizontal");
+boardPlayer.placeShip(6, 0, playerShip4, "horizontal");
+boardPlayer.placeShip(8, 0, playerShip5, "horizontal");
 
 console.log(boardPlayer.board);
-
+console.log(boardBot.board);
 //creating players
 let player1 = createPlayer("Player");
 let player2 = createPlayer("Bot");
