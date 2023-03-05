@@ -111,6 +111,7 @@ a:hover {
 .controls-list {
   margin-bottom: 1.5em;
   width: 70%;
+  padding-left: 40px;
 }
 
 kbd {
@@ -129,6 +130,12 @@ kbd {
 }
 
 /* Battlefields */
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
 
 .result {
   margin-top: 6em;
@@ -206,6 +213,15 @@ table {
   align-items: center;
   line-height: 32px;
   color: #ffffff;
+}
+
+.ship-horizontal {
+  transform: rotate(90deg);
+}
+
+.ship-sub-div {
+  width: 32px;
+  height: 32px;
 }
 
 .ship-sub-div:hover {
