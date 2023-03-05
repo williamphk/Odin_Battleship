@@ -15,6 +15,8 @@ import { drop } from "../eventHandlers/drop";
 import { playerMove } from "./playerMove";
 import { startClick } from "../eventHandlers/startClick";
 
+let isGameEnd = false;
+
 const initGame = () => {
   //creating ships for player and bot
   const playerShip1 = createShip("ship1", 2, "horizontal", "player");
@@ -69,6 +71,7 @@ const initGame = () => {
         cell,
         index,
         isGameStart,
+        isGameEnd,
         gameLogic,
         boardBot,
         boardPlayer,
@@ -124,8 +127,15 @@ const initGame = () => {
       boardBot
     );
     isGameStart = !isGameStart;
+    if (isGameEnd === true) {
+      isGameEnd = false;
+    }
     console.log(isGameStart);
   });
 };
 
-export { initGame };
+const setIsGameEnd = (value) => {
+  isGameEnd = value;
+};
+
+export { initGame, setIsGameEnd };

@@ -67,6 +67,9 @@ const startClick = (
       resetShipDivDirection();
       resetBoard();
       resetShipDivPosition(shipDiv1, shipDiv2, shipDiv3, shipDiv4, shipDiv5);
+
+      const result = document.querySelector(".result");
+      result.innerHTML = "";
       break;
   }
 };

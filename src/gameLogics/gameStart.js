@@ -1,8 +1,6 @@
 //import helper functions
 import { randomX, randomY, randomDirection } from "../utils/random";
 
-import { battlefield } from "../layout/battlefield";
-
 const gameStart = (
   playerShip1,
   playerShip2,

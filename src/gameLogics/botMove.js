@@ -1,14 +1,7 @@
 import { randomX, randomY } from "../utils/random.js";
+import { setIsGameEnd } from "./initGame";
 
-const botMove = (
-  x,
-  y,
-  boardPlayer,
-  gameLogic,
-  player1,
-  boardBot,
-  isGameEnd
-) => {
+const botMove = (x, y, boardPlayer, gameLogic, player1, boardBot) => {
   if (boardPlayer.isHit(x, y) || boardPlayer.isMiss(x, y)) {
     botMove(randomX(), randomY(), boardPlayer, gameLogic, player1, boardBot);
   } else {
@@ -41,7 +34,7 @@ const botMove = (
     }
     if (boardPlayer.isAllShipSink()) {
       result.innerHTML = "Bot won!";
-      isGameEnd = true;
+      setIsGameEnd(true);
     } else {
       gameLogic.turn = player1.name;
     }
