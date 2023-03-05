@@ -11,8 +11,6 @@ const createShipDiv = (id, length, width) => {
 const createShipSubDiv = (divID) => {
   const shipSubDiv = document.createElement("div");
   shipSubDiv.className = "ship-sub-div";
-  shipSubDiv.style.width = "32px";
-  shipSubDiv.style.height = "32px";
   shipSubDiv.setAttribute("data-div", divID);
   return shipSubDiv;
 };

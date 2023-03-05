@@ -4,10 +4,6 @@ import { createShipSubDiv } from "../utils/createShipDiv.js";
 const battiefield = () => {
   const game = document.createElement("div");
   game.className = "game";
-  game.style.display = "flex";
-  game.style.flexDirection = "column";
-  game.style.alignItems = "center";
-  game.style.gap = "20px";
 
   const result = document.createElement("h3");
   result.className = "result";

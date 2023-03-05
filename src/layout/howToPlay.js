@@ -14,7 +14,6 @@ const howToPlay = () => {
 
   const gameplayList = document.createElement("ol");
   gameplayList.className = "gameplay-list";
-  gameplayList.style.paddingLeft = "40px";
   const gameplayListItem1 = document.createElement("li");
   const gameplayListItem2 = document.createElement("li");
   const gameplayListItem3 = document.createElement("li");
@@ -50,7 +49,6 @@ const howToPlay = () => {
 
   const gameRulesList = document.createElement("ul");
   gameRulesList.className = "game-rules-list";
-  gameRulesList.style.paddingLeft = "40px";
   const gameRulesListItem1 = document.createElement("li");
   const gameRulesListItem2 = document.createElement("li");
   const gameRulesListItem3 = document.createElement("li");
@@ -75,7 +73,6 @@ const howToPlay = () => {
 
   const controlsList = document.createElement("ul");
   controlsList.className = "controls-list";
-  controlsList.style.paddingLeft = "40px";
   const controlsListItem1 = document.createElement("li");
   const controlsListItem2 = document.createElement("li");
   const controlsListItem3 = document.createElement("li");

@@ -22,15 +22,16 @@ const startClick = (
 ) => {
   console.log("clicked");
 
-  const td = document.querySelectorAll(".battlefield-cell");
+  const td = document.getElementsByClassName("battlefield-cell");
   const draggable = document.querySelectorAll(".ship");
+  console.log(td);
   switch (ev.target.innerHTML) {
     case "Start":
       console.log("Game started");
       ev.target.innerHTML = "Restart";
-      td.forEach((cell) => {
-        cell.classList.toggle(".battlefield-cell--active");
-      });
+      for (let i = 0; i < td.length; i++) {
+        td[i].classList.toggle("battlefield-cell--active");
+      }
       draggable.forEach((ship) => {
         ship.draggable = false;
       });
@@ -38,9 +39,9 @@ const startClick = (
     case "Restart":
       console.log("Game restarted");
       ev.target.innerHTML = "Start";
-      td.forEach((cell) => {
-        cell.classList.toggle(".battlefield-cell--active");
-      });
+      for (let i = 0; i < td.length; i++) {
+        td[i].classList.toggle("battlefield-cell--active");
+      }
       draggable.forEach((ship) => {
         ship.draggable = true;
       });
