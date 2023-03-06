@@ -24,7 +24,7 @@ const startClick = (
 
   const td = document.getElementsByClassName("battlefield-cell");
   const draggable = document.querySelectorAll(".ship");
-  console.log(td);
+
   switch (ev.target.innerHTML) {
     case "Start":
       console.log("Game started");
@@ -35,6 +35,7 @@ const startClick = (
       draggable.forEach((ship) => {
         ship.draggable = false;
       });
+      console.log(boardPlayer.probabilityBoard);
       break;
     case "Restart":
       console.log("Game restarted");
@@ -68,6 +69,8 @@ const startClick = (
       resetShipDivDirection();
       resetBoard();
       resetShipDivPosition(shipDiv1, shipDiv2, shipDiv3, shipDiv4, shipDiv5);
+      boardPlayer.setProbabilityBoardToZero();
+      boardPlayer.calculateProbability();
 
       const result = document.querySelector(".result");
       result.innerHTML = "";

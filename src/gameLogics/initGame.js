@@ -19,23 +19,39 @@ let isGameEnd = false;
 
 const initGame = () => {
   //creating ships for player and bot
-  const playerShip1 = createShip("ship1", 2, "horizontal", "player");
-  const playerShip2 = createShip("ship2", 3, "horizontal", "player");
-  const playerShip3 = createShip("ship3", 3, "horizontal", "player");
-  const playerShip4 = createShip("ship4", 4, "horizontal", "player");
-  const playerShip5 = createShip("ship5", 5, "horizontal", "player");
+  const playerShip1 = createShip("ship1", 2, "horizontal", "player", false);
+  const playerShip2 = createShip("ship2", 3, "horizontal", "player", false);
+  const playerShip3 = createShip("ship3", 3, "horizontal", "player", false);
+  const playerShip4 = createShip("ship4", 4, "horizontal", "player", false);
+  const playerShip5 = createShip("ship5", 5, "horizontal", "player", false);
 
-  const botShip1 = createShip("ship1", 2, "horizontal", "bot");
-  const botShip2 = createShip("ship2", 3, "horizontal", "bot");
-  const botShip3 = createShip("ship3", 3, "horizontal", "bot");
-  const botShip4 = createShip("ship4", 4, "horizontal", "bot");
-  const botShip5 = createShip("ship5", 5, "horizontal", "bot");
+  const botShip1 = createShip("ship1", 2, "horizontal", "bot", false);
+  const botShip2 = createShip("ship2", 3, "horizontal", "bot", false);
+  const botShip3 = createShip("ship3", 3, "horizontal", "bot", false);
+  const botShip4 = createShip("ship4", 4, "horizontal", "bot", false);
+  const botShip5 = createShip("ship5", 5, "horizontal", "bot", false);
+
+  const playerShipArray = [
+    playerShip1,
+    playerShip2,
+    playerShip3,
+    playerShip4,
+    playerShip5,
+  ];
+
+  const botShipArray = [botShip1, botShip2, botShip3, botShip4, botShip5];
 
   //creating gameboard for player and bot
-  let boardPlayer = createGameboard();
-  let boardBot = createGameboard();
+  let boardPlayer = createGameboard(playerShipArray);
+  let boardBot = createGameboard(botShipArray);
 
   let isGameStart = false;
+
+  console.log(
+    boardPlayer.calculateProbability(),
+    boardPlayer.probabilityBoard,
+    boardPlayer.bestNextMove()
+  );
 
   gameStart(
     playerShip1,
