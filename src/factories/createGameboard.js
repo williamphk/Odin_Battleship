@@ -134,6 +134,24 @@ const createGameboard = (shipArray) => {
             this.probabilityBoard[i][j] = 0;
             continue;
           }
+          //targets and hits all adjacent squares to the hit
+          //right
+          if (this.board[i][j + 1] === "hit") {
+            this.probabilityBoard[i][j] = this.probabilityBoard[i][j] + 100;
+          }
+          //top
+          if (i < 9 && this.board[i + 1][j] === "hit") {
+            this.probabilityBoard[i][j] = this.probabilityBoard[i][j] + 100;
+          }
+          //left
+          if (j > 0 && this.board[i][j - 1] === "hit") {
+            this.probabilityBoard[i][j] = this.probabilityBoard[i][j] + 100;
+          }
+          //bottom
+          if (i > 0 && this.board[i - 1][j] === "hit") {
+            this.probabilityBoard[i][j] = this.probabilityBoard[i][j] + 100;
+          }
+
           for (let k = 0; k < shipArray.length; k++) {
             if (shipArray[k].isSink === true) {
               continue;
