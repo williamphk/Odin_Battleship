@@ -12,7 +12,7 @@ const botMove = (x, y, boardPlayer, gameLogic, player1, boardBot) => {
     const result = document.querySelector(".result");
     let shipDiv = cell.innerHTML;
     if (boardPlayer.isHit(x, y)) {
-      console.log("x", x, "y", y);
+      // console.log("x", x, "y", y);
 
       if (shipDiv) {
         var div = document.createElement("div");
@@ -33,10 +33,10 @@ const botMove = (x, y, boardPlayer, gameLogic, player1, boardBot) => {
     } else if (boardPlayer.isMiss(x, y)) {
       cell.innerHTML = "。";
     }
-    console.log(boardPlayer.board);
+    // console.log(boardPlayer.board);
     boardPlayer.setProbabilityBoardToZero();
     boardPlayer.calculateProbability();
-    console.log(boardPlayer.probabilityBoard);
+    // console.log(boardPlayer.probabilityBoard);
     if (boardPlayer.isAllShipSink()) {
       result.innerHTML = "Bot won!";
       setIsGameEnd(true);

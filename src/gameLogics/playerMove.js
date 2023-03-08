@@ -17,7 +17,7 @@ const playerMove = (
   if (gameLogic.turn === player2.name) return;
   if (cell.innerHTML === "。" || cell.innerHTML === "X") return;
   if (isGameEnd) return;
-  console.log(boardPlayer.bestNextMove()[0], boardPlayer.bestNextMove()[1]);
+  // console.log(boardPlayer.bestNextMove()[0], boardPlayer.bestNextMove()[1]);
   const battleCellContentBot = document.querySelectorAll(
     ".battle-cell-content__bot"
   );

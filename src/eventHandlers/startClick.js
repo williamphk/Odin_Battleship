@@ -20,7 +20,7 @@ const startClick = (
   boardPlayer,
   boardBot
 ) => {
-  console.log("clicked");
+  // console.log("clicked");
 
   const td = document.getElementsByClassName("battlefield-cell");
   const draggable = document.querySelectorAll(".ship");
@@ -35,7 +35,7 @@ const startClick = (
       draggable.forEach((ship) => {
         ship.draggable = false;
       });
-      console.log(boardPlayer.probabilityBoard);
+      // console.log(boardPlayer.probabilityBoard);
       break;
     case "Restart":
       console.log("Game restarted");

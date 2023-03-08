@@ -47,11 +47,11 @@ const initGame = () => {
 
   let isGameStart = false;
 
-  console.log(
-    boardPlayer.calculateProbability(),
-    boardPlayer.probabilityBoard,
-    boardPlayer.bestNextMove()
-  );
+  // console.log(
+  //   boardPlayer.calculateProbability(),
+  //   boardPlayer.probabilityBoard,
+  //   boardPlayer.bestNextMove()
+  // );
 
   gameStart(
     playerShip1,
@@ -103,7 +103,7 @@ const initGame = () => {
   for (let i = 0; i < shipSubDiv.length; i++) {
     shipSubDiv[i].addEventListener("mouseover", (e) => {
       selectedSubDiv = e.target.getAttribute("data-div");
-      console.log(selectedSubDiv);
+      // console.log(selectedSubDiv);
     });
   }
 
@@ -146,7 +146,7 @@ const initGame = () => {
     if (isGameEnd === true) {
       isGameEnd = false;
     }
-    console.log(isGameStart);
+    // console.log(isGameStart);
   });
 };
 
