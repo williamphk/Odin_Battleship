@@ -81,7 +81,7 @@ const howToPlay = () => {
     "<kbd>Drag</kbd> and <kbd>Drop</kbd> the ships on the board";
   controlsListItem2.innerHTML = "Single <kbd>Click</kbd> to rotate them";
   controlsListItem3.innerHTML =
-    "press <kbd>Start</kbd> and try to defeat the Bot! Good luck!";
+    "Press <kbd>Start</kbd> and try to defeat the Bot! Good luck!";
 
   controlsList.appendChild(controlsListItem1);
   controlsList.appendChild(controlsListItem2);
