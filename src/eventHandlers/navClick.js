@@ -2,7 +2,7 @@ const navClick = (e) => {
   const howToPlay = document.querySelector(".how-to-play");
   const game = document.querySelector(".game");
 
-  const distance = window.innerWidth;
+  const distance = screen.width;
 
   switch (e.target.innerHTML) {
     case "Home":

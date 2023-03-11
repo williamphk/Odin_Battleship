@@ -19,7 +19,7 @@ const shipClick = (ev, boardPlayer, gameStart) => {
         spaceAvailable = false;
       }
     }
-    console.log(spaceAvailable);
+    //console.log(spaceAvailable);
     if (spaceAvailable === false) return;
     else {
       ev.srcElement.parentElement.style.flexDirection = "column";
@@ -38,7 +38,7 @@ const shipClick = (ev, boardPlayer, gameStart) => {
         spaceAvailable = false;
       }
     }
-    console.log(spaceAvailable);
+    //console.log(spaceAvailable);
     if (spaceAvailable === false) return;
     else {
       ev.srcElement.parentElement.style.flexDirection = "row";

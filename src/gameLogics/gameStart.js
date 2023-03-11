@@ -32,8 +32,8 @@ const gameStart = (
   boardPlayer.placeShip(6, 0, playerShip4, "horizontal");
   boardPlayer.placeShip(8, 0, playerShip5, "horizontal");
 
-  console.log(boardPlayer.board);
-  console.log(boardBot.board);
+  //console.log(boardPlayer.board);
+  //console.log(boardBot.board);
 };
 
 export { gameStart };

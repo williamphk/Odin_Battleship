@@ -38,7 +38,7 @@ const battiefield = () => {
   const tablePlayer = document.createElement("table");
   const tableBot = document.createElement("table");
 
-  console.log(tablePlayer, tableBot);
+  //console.log(tablePlayer, tableBot);
   tablePlayer.className = "battlefield-table-container__player";
   tableBot.className = "battlefield-table-container__bot";
 
@@ -136,11 +136,11 @@ const battiefield = () => {
 };
 
 const resetShipDivDirection = () => {
-  console.log("resetShipDivDirection");
+  //console.log("resetShipDivDirection");
   const shipDivs = document.querySelectorAll(".ship");
   shipDivs.forEach((shipDiv) => {
     let shipSize = shipDiv.dataset.length * 32;
-    console.log(shipSize);
+    //console.log(shipSize);
     shipDiv.style.flexDirection = "row";
     shipDiv.style.width = shipSize + "px";
     shipDiv.style.height = "32px";

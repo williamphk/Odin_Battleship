@@ -1,3 +1,4 @@
+import { setShipDirection } from "../gameLogics/initGame.js";
 import { gameStart } from "../gameLogics/gameStart.js";
 import {
   resetShipDivPosition,
@@ -46,6 +47,12 @@ const startClick = (
       draggable.forEach((ship) => {
         ship.draggable = true;
       });
+      setShipDirection(playerShip1, "horizontal");
+      setShipDirection(playerShip2, "horizontal");
+      setShipDirection(playerShip3, "horizontal");
+      setShipDirection(playerShip4, "horizontal");
+      setShipDirection(playerShip5, "horizontal");
+
       gameStart(
         playerShip1,
         playerShip2,
@@ -74,6 +81,7 @@ const startClick = (
 
       const result = document.querySelector(".result");
       result.innerHTML = "";
+      //console.log(boardPlayer.board);
       break;
   }
 };

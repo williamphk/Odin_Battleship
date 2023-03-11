@@ -1,5 +1,5 @@
 const drop = (ev, boardPlayer, gameStart, selectedSubDiv) => {
-  console.log("drop");
+  //console.log("drop");
   if (gameStart === true) return;
   ev.preventDefault();
   let data = ev.dataTransfer.getData("target");
@@ -51,7 +51,7 @@ const drop = (ev, boardPlayer, gameStart, selectedSubDiv) => {
         "horizontal"
       );
       boardPlayer.placeShip(targetX, targetY, shipObj, "horizontal");
-      console.log(boardPlayer.board);
+      //console.log(boardPlayer.board);
     }
   } else if (shipObj.direction === "vertical") {
     for (let i = 0; i < dataLength; i++) {
@@ -66,7 +66,7 @@ const drop = (ev, boardPlayer, gameStart, selectedSubDiv) => {
         spaceAvailable = false;
       }
     }
-    console.log(spaceAvailable);
+    //console.log(spaceAvailable);
     if (!spaceAvailable) return;
     else if (spaceAvailable) {
       if (selectedSubDiv == 2) {

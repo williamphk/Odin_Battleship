@@ -1,7 +1,7 @@
 const howToPlay = () => {
   const howToPlay = document.createElement("div");
   howToPlay.className = "how-to-play";
-  const distance = window.innerWidth;
+  const distance = screen.width;
   howToPlay.style.position = "absolute";
   howToPlay.style.left = `${-distance}px`;
 
@@ -23,7 +23,7 @@ const howToPlay = () => {
     "The game board consists of a 10x10 grid where you and the Bot will place your battleships and attempt to sink each other's ships."
   );
   const gameplayListItem2Text = document.createTextNode(
-    "You have a fleet of 10 ships: one 4-cell ship, two 3-cell ships, three 2-cell ships, and four 1-cell ships. The Bot also has the same fleet."
+    "You have a fleet of 5 ships: one 5-cell ship, one 4-cell ship, two 3-cell ships and one 2-cell ships. The Bot also has the same fleet."
   );
   const gameplayListItem3Text = document.createTextNode(
     "You will arrange your ships on the board to where you want them to be, either vertically or horizontally."

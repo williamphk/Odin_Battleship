@@ -19,17 +19,17 @@ let isGameEnd = false;
 
 const initGame = () => {
   //creating ships for player and bot
-  const playerShip1 = createShip("ship1", 2, "horizontal", "player", false);
-  const playerShip2 = createShip("ship2", 3, "horizontal", "player", false);
-  const playerShip3 = createShip("ship3", 3, "horizontal", "player", false);
-  const playerShip4 = createShip("ship4", 4, "horizontal", "player", false);
-  const playerShip5 = createShip("ship5", 5, "horizontal", "player", false);
+  const playerShip1 = createShip("ship1", 2, "horizontal", "player");
+  const playerShip2 = createShip("ship2", 3, "horizontal", "player");
+  const playerShip3 = createShip("ship3", 3, "horizontal", "player");
+  const playerShip4 = createShip("ship4", 4, "horizontal", "player");
+  const playerShip5 = createShip("ship5", 5, "horizontal", "player");
 
-  const botShip1 = createShip("ship1", 2, "horizontal", "bot", false);
-  const botShip2 = createShip("ship2", 3, "horizontal", "bot", false);
-  const botShip3 = createShip("ship3", 3, "horizontal", "bot", false);
-  const botShip4 = createShip("ship4", 4, "horizontal", "bot", false);
-  const botShip5 = createShip("ship5", 5, "horizontal", "bot", false);
+  const botShip1 = createShip("ship1", 2, "horizontal", "bot");
+  const botShip2 = createShip("ship2", 3, "horizontal", "bot");
+  const botShip3 = createShip("ship3", 3, "horizontal", "bot");
+  const botShip4 = createShip("ship4", 4, "horizontal", "bot");
+  const botShip5 = createShip("ship5", 5, "horizontal", "bot");
 
   const playerShipArray = [
     playerShip1,
@@ -154,4 +154,8 @@ const setIsGameEnd = (value) => {
   isGameEnd = value;
 };
 
-export { initGame, setIsGameEnd };
+const setShipDirection = (ship, direction) => {
+  ship.direction = direction;
+};
+
+export { initGame, setIsGameEnd, setShipDirection };

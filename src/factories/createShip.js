@@ -1,4 +1,4 @@
-const createShip = (shipName, shipLength, direction, group, isSink) => {
+const createShip = (shipName, shipLength, direction, group) => {
   if (shipLength > 5 || shipLength < 1) {
     throw new Error("Wrong Length");
   } else
@@ -12,7 +12,7 @@ const createShip = (shipName, shipLength, direction, group, isSink) => {
       //group is either player or bot
       group: group,
       //isSink is a boolean value that checks if the ship is sunk
-      isSink: isSink,
+      // isSink: isSink,
       //creating an array of length shipLength filled with undefined values
       array: [...Array(shipLength)],
       //hitPosition is the position of the ship that is hit
@@ -23,9 +23,9 @@ const createShip = (shipName, shipLength, direction, group, isSink) => {
         this.array[hitPosition] = "hit";
       },
       //checks if all the positions in the array are hit
-      isSink() {
-        return this.array.every((position) => position === "hit");
-      },
+      // isSink() {
+      //   return this.array.every((position) => position === "hit");
+      // },
     };
 };
 
