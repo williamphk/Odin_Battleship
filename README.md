@@ -33,9 +33,28 @@ Battleship is a guessing game played by two players. Each player has a game boar
 - eventHandlers/startClick.js: Handles the start button click event.
 - eventHandlers/navClick.js: Handles the navigation button click event.
 
-### Layout
+#### Layout
 - layout/header.js: Renders the header.
 - layout/main.js: Renders the main content.
 - layout/battlefield.js: Renders the game board.
-- layout/outToPlay.js: Renders the "out to play" message.
+- layout/howToPlay.js:  Renders the "How to Play" section.
 - layout/footer.js: Renders the footer.
+
+### How to Play
+To play the game, first arrange your ships on the game board. You can do this by dragging and dropping them onto the board. Once you have placed your ships, click the "Start Game" button to begin.
+
+On your turn, click a cell on your opponent's board to guess if there is a ship there. If you hit a ship, a red "X" will appear on the cell. If you miss, a  dot will appear on the cell.
+
+The game ends when one player has sunk all of their opponent's ships.
+
+### Getting Started
+To get a local copy up and running follow these simple steps:
+
+- Clone the repository: git clone https://github.com/williamphk/odin_Battleship.git
+- Navigate to the project directory: cd odin_Battleship
+- Install the dependencies: npm install
+- Build the project: npm run build
+- Open index.html in your browser.
+
+### Acknowledgements
+- The Odin Project
