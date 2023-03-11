@@ -57,4 +57,4 @@ To get a local copy up and running follow these simple steps:
 - Open dist/index.html in your browser.
 
 ### Acknowledgements
-- The Odin Project
+- [The Odin Project](https://www.theodinproject.com/)
