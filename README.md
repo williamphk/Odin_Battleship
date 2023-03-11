@@ -1,5 +1,5 @@
 # odin_Battleship
-This repository is a project for The Odin Project's [curriculum](https://www.theodinproject.com/lessons/javascript-battleship). It demonstrates the use of Webpack and JavaScript to recreate the game of Battleship.
+This repository is a project for The Odin Project's [curriculum](https://www.theodinproject.com/lessons/javascript-battleship). It demonstrates the use of Webpack and JavaScript to recreate the game of Battleship. This proeject use "for loop" extensively placing ships and tracking ships' locations.
 
 Live preview: https://williamphk.github.io/odin_Battleship/
 
@@ -20,7 +20,7 @@ Battleship is a guessing game played by two players. Each player has a game boar
 - gameLogics/botMove.js: Handles the logic for the bot's move.
 
 #### Factory Functions
-- factories/createGameBoard.js: Creates a game board.
+- factories/createGameBoard.js: Creates a game board with function to calculate probability on the board.
 - factories/createPlayer.js: Creates a player object.
 - factories/createShip.js: Creates a ship object.
 
