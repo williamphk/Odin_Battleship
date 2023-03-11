@@ -12,16 +12,19 @@ Battleship is a guessing game played by two players. Each player has a game boar
 - JavaScript
 - Webpack
 
-Key Files for this Project:
+### Key Files for this Project:
+#### Game Logic
 - gameLogics/initGame.js: Initializes the game state and sets up the game board.
 - gameLogics/gameStart.js: Handles the game start logic.
 - gameLogics/playerMove.js: Handles the logic for a player's move.
 - gameLogics/botMove.js: Handles the logic for the bot's move.
 
+#### Factory Functions
 - factories/createGameBoard.js: Creates a game board.
 - factories/createPlayer.js: Creates a player object.
 - factories/createShip.js: Creates a ship object.
 
+#### Event Handlers
 - eventHandlers/dragStart.js: Handles the drag start event.
 - eventHandlers/dragOver.js: Handles the drag over event.
 - eventHandlers/dragEnd.js: Handles the drag end event.
@@ -30,6 +33,7 @@ Key Files for this Project:
 - eventHandlers/startClick.js: Handles the start button click event.
 - eventHandlers/navClick.js: Handles the navigation button click event.
 
+### Layout
 - layout/header.js: Renders the header.
 - layout/main.js: Renders the main content.
 - layout/battlefield.js: Renders the game board.
