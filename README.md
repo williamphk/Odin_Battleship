@@ -54,7 +54,7 @@ To get a local copy up and running follow these simple steps:
 - Navigate to the project directory: cd odin_Battleship
 - Install the dependencies: npm install
 - Build the project: npm run build
-- Open index.html in your browser.
+- Open dist/index.html in your browser.
 
 ### Acknowledgements
 - The Odin Project
