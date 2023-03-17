@@ -259,7 +259,16 @@ footer {
   .how-to-play {
     padding-left: 1.5em;
   }
+  .game {
+    gap: 1em;
+  }
+  .battlefields {
+    gap: 0.5em;
+  }
   .result {
-    margin-top: 1em;
+    margin-top: 0.5em;
+  }
+  footer {
+    position: static;
   }
 }
