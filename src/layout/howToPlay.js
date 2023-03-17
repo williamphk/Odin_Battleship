@@ -2,7 +2,7 @@ const howToPlay = () => {
   const howToPlay = document.createElement("div");
   howToPlay.className = "how-to-play";
   const distance = screen.width;
-  howToPlay.style.position = "absolute";
+  howToPlay.style.position = "fixed";
   howToPlay.style.left = `${-distance}px`;
 
   const gameplay = document.createElement("h3");
