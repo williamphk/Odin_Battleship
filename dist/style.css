@@ -104,6 +104,7 @@ a:hover {
 .how-to-play {
   padding-top: 1.5em;
   padding-left: 6em;
+  width: 100%;
 }
 
 .gameplay-list,
@@ -144,6 +145,7 @@ kbd {
 
 .battlefields {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: center;
   gap: 5em;
@@ -250,4 +252,14 @@ footer {
   position: fixed;
   left: 0;
   bottom: 1em;
+}
+/* Media Queries */
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .how-to-play {
+    padding-left: 1.5em;
+  }
+  .result {
+    margin-top: 1em;
+  }
 }
