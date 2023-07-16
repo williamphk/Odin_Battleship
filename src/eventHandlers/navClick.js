@@ -8,16 +8,20 @@ const navClick = (e) => {
     case "Home":
       howToPlay.style.transition = `transform 0.5s ease-in-out`;
       howToPlay.style.transform = `translateX(${-distance}px)`;
+      howToPlay.style.position = "fixed";
       // Animate the section off screen
       game.style.transition = `transform 0.5s ease-in-out`;
       game.style.transform = `translateX(0px)`;
+      game.style.position = "static";
       break;
     case "How To Play":
       howToPlay.style.transition = `transform 0.5s ease-in-out`;
       howToPlay.style.transform = `translateX(${distance}px)`;
+      howToPlay.style.position = "absolute";
       // Animate the section off screen
       game.style.transition = `transform 0.5s ease-in-out`;
       game.style.transform = `translateX(${distance}px)`;
+      game.style.position = "fixed";
       break;
     case "Source Code":
       console.log("Source Code");
@@ -25,9 +29,11 @@ const navClick = (e) => {
     default:
       howToPlay.style.transition = `transform 0.5s ease-in-out`;
       howToPlay.style.transform = `translateX(${-distance}px)`;
+      howToPlay.style.position = "fixed";
       // Animate the section off screen
       game.style.transition = `transform 0.5s ease-in-out`;
       game.style.transform = `translateX(0px)`;
+      game.style.position = "static";
   }
 };
 
