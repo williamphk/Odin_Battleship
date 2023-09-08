@@ -16,18 +16,18 @@ A recreation of the classic Battleship game built as a part of The Odin Project'
 - Layout Files: Responsible for rendering the header, main content, game board, and other UI components.
 
 ## Key Files for this Project:
-#### Game Logic
+### Game Logic
 - gameLogics/initGame.js: Initializes the game state and sets up the game board.
 - gameLogics/gameStart.js: Handles the game start logic.
 - gameLogics/playerMove.js: Handles the logic for a player's move.
 - gameLogics/botMove.js: Handles the logic for the bot's move.
 
-#### Factory Functions
+### Factory Functions
 - factories/createGameBoard.js: Creates a game board with function to calculate probability on the board.
 - factories/createPlayer.js: Creates a player object.
 - factories/createShip.js: Creates a ship object.
 
-#### Event Handlers
+### Event Handlers
 - eventHandlers/dragStart.js: Handles the drag start event.
 - eventHandlers/dragOver.js: Handles the drag over event.
 - eventHandlers/dragEnd.js: Handles the drag end event.
@@ -36,21 +36,21 @@ A recreation of the classic Battleship game built as a part of The Odin Project'
 - eventHandlers/startClick.js: Handles the start button click event.
 - eventHandlers/navClick.js: Handles the navigation button click event.
 
-#### Layout
+### Layout
 - layout/header.js: Renders the header.
 - layout/main.js: Renders the main content.
 - layout/battlefield.js: Renders the game board.
 - layout/howToPlay.js:  Renders the "How to Play" section.
 - layout/footer.js: Renders the footer.
 
-### How to Play
+## How to Play
 To play the game, first arrange your ships on the game board. You can do this by dragging and dropping them onto the board. Once you have placed your ships, click the "Start Game" button to begin.
 
 On your turn, click a cell on your opponent's board to guess if there is a ship there. If you hit a ship, a red "X" will appear on the cell. If you miss, a  dot will appear on the cell.
 
 The game ends when one player has sunk all of their opponent's ships.
 
-### Getting Started
+## Getting Started
 To get a local copy up and running follow these simple steps:
 
 - Clone the repository: git clone https://github.com/williamphk/odin_Battleship.git
@@ -59,5 +59,5 @@ To get a local copy up and running follow these simple steps:
 - Build the project: npm run build
 - Open dist/index.html in your browser.
 
-### Acknowledgements
+## Acknowledgements
 - [The Odin Project](https://www.theodinproject.com/)
