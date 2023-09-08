@@ -1,5 +1,9 @@
-# odin_Battleship
+# TheBattleship
+
+![project-three](https://github.com/williamphk/odin_Battleship/assets/65807958/d79b46b2-3078-4def-9858-066762f6e1b2)
+
 ## Overview:
+
 A recreation of the classic Battleship game built as a part of The Odin Project's curriculum. Implemented using Webpack and JavaScript, with an emphasis on "for loops" for ship placement and tracking. The live game can be previewed [here](https://williamphk.github.io/odin_Battleship/).
 
 ## Key Features:
