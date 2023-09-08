@@ -1,18 +1,21 @@
 # odin_Battleship
-This repository is a project for The Odin Project's [curriculum](https://www.theodinproject.com/lessons/javascript-battleship). It demonstrates the use of Webpack and JavaScript to recreate the game of Battleship. This proeject use "for loop" extensively placing ships and tracking ships' locations.
+## Overview:
+A recreation of the classic Battleship game built as a part of The Odin Project's curriculum. Implemented using Webpack and JavaScript, with an emphasis on "for loops" for ship placement and tracking. The live game can be previewed [here](https://williamphk.github.io/odin_Battleship/).
 
-Live preview: https://williamphk.github.io/odin_Battleship/
+## Key Features:
+- Drag and Drop Functionality: Players can drag and position their fleet on the game board.
+- Heuristic Algorithm: Designed a strategy for the bot player that calculates ship location probabilities by analyzing adjacent hits and potential ship orientations, then predicts the most probable attack point.
+- Responsive UI: Features like "How to Play" and a well-structured game board enhance user experience.
 
-### About this project
-Battleship is a guessing game played by two players. Each player has a game board with ships arranged on it, and they take turns guessing the locations of the opponent's ships. The first player to sink all of their opponent's ships wins the game.
+## Technical Highlights:
 
-### Built With
-- HTML
-- CSS
-- JavaScript
-- Webpack
+- Languages/Frameworks: HTML, CSS, JavaScript, Webpack.
+- Game Logic Modules: Handle game initialization, player moves, bot moves, and game start.
+- Factory Functions: Facilitate the creation of game boards, players, and individual ships.
+- Event Handlers: Deal with various in-game events such as dragging ships, placing ships, and initiating game start.
+- Layout Files: Responsible for rendering the header, main content, game board, and other UI components.
 
-### Key Files for this Project:
+## Key Files for this Project:
 #### Game Logic
 - gameLogics/initGame.js: Initializes the game state and sets up the game board.
 - gameLogics/gameStart.js: Handles the game start logic.
