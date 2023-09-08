@@ -1,4 +1,4 @@
-# TheBattleship
+# Battleship
 
 ![project-three](https://github.com/williamphk/odin_Battleship/assets/65807958/d79b46b2-3078-4def-9858-066762f6e1b2)
 
